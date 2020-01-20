@@ -1,0 +1,2 @@
+# Sejuve
+Sistema de competições
