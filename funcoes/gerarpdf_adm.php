@@ -40,16 +40,16 @@
 	$nomelogo1 = $dadoslogo['logoevento'];
 	$logoequipe = $dadosequipe['logoequipe'];
 	$html = '<div id="imglogo">
-				<img src="../imagens/500x500.png"  style="width:100px; height:100px;">
+				<img src="../imagens/sejuve_logo.png"  style="width:100px; height:100px;">
 				<img src="../imagens/'.$nomelogo1.'" style="width:100px; height:100px;" id="imglogo2">
 				<img src="../imagens/'.$logoequipe.'" style="width:100px; height:100px;" id="imglogo3">
 				
 			</div> ';
 	$html .= '<h1 align="center">Relatório</h1>';
-	while ($dadosequipe = mysqli_fetch_assoc($resultequipe)) {
-		$html .='<h2 align="center" > EQUIPE: '.$dadosequipe['nomeequipe'].'</h2>';
-		$html .='<h3 align="center"> RESPONSAVEL: '.$dadosequipe['nomeresponsavel'].'</h3>';
-	}
+	
+		$html .='<h2  > EQUIPE: '.$dadosequipe['nomeequipe'].'</h2>';
+		$html .='<h3 > RESPONSAVEL: '.$dadosequipe['nomeresponsavel'].'</h3>';
+	
 	
 	$html .= '<h2 align="center">Atletas<h2>';
 	$html .= '
