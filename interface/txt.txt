@@ -1,0 +1,20 @@
+Dados das escolas 
+*logo
+*nome
+*inep
+*endereço
+*nome do diretor
+*responsavel pelo cadastro
+*e-mail
+*telefone
+*login
+*senha
+
+
+ <div class="form-row">
+    
+<div class="col"></div>
+<div class="col"></div>
+
+  </div>
+
