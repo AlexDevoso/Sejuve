@@ -39,13 +39,22 @@
 	$dadosequipe = mysqli_fetch_array($resultequipe);
 	$nomelogo1 = $dadoslogo['logoevento'];
 	$logoequipe = $dadosequipe['logoequipe'];
-	$html = '<div id="imglogo">
+	if($dadosequipe['logoequipe'] != null){
+		$html = '<div id="imglogo">
 				<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
 				<img src="../imagens/'.$nomelogo1.'" style="width:80px; height:80px;" id="imglogo2">
 				<img src="../imagens/'.$logoequipe.'" style="width:80px; height:80px;" id="imglogo3">
 				
 			</div> ';
-	
+	}
+	else{
+			$html = '<div id="imglogo">
+				<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+				<img src="../imagens/'.$nomelogo1.'" style="width:80px; height:80px;" id="imglogo2">
+				
+				
+			</div> ';	
+	}
 	
 			$html .= '<table id="tb1" border = 1 width = 100%>';
 			$html .= '<thead>';
