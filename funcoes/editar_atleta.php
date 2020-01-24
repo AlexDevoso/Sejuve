@@ -88,7 +88,7 @@ elseif(!empty($imagem_atleta["name"])){
 		$sqlimg = "UPDATE atleta set nome_atleta = '{$nome_atleta}', data_nascimento_atleta = '{$data_nascimento_atleta}', rg_atleta = '{$rg_atleta}', naturalidade_atleta = '{$naturalidade_atleta}', imagem_rg = '{$nome_imagem}' where atletaid = '{$atletaid}'";
 		if(mysqli_query($conexao, $sqlimg)){
 		header('Location: ../interface/atletas_database.php');
-		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO.";
 
 		}
 		}
@@ -96,7 +96,7 @@ elseif(!empty($imagem_atleta["name"])){
 			$sqlimg = "UPDATE atleta set nome_atleta = '{$nome_atleta}', data_nascimento_atleta = '{$data_nascimento_atleta}',naturalidade_atleta = '{$naturalidade_atleta}', imagem_rg = '{$nome_imagem}' where atletaid = '{$atletaid}'";
 		if(mysqli_query($conexao, $sqlimg)){
 		header('Location: ../interface/atletas_database.php');
-		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO.";
 
 		}	
 		}
@@ -107,7 +107,7 @@ else{
 	$sql = "UPDATE atleta set nome_atleta = '{$nome_atleta}', data_nascimento_atleta = '{$data_nascimento_atleta}', naturalidade_atleta = '{$naturalidade_atleta}' where atletaid = '{$atletaid}'";
 	if(mysqli_query($conexao, $sql)){
 	header('Location: ../interface/atletas_database.php');
-		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO.";
 		}
 		else{
 			header('Location: ../interface/atletas_database.php');

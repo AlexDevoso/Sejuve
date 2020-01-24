@@ -40,18 +40,35 @@
 	$nomelogo1 = $dadoslogo['logoevento'];
 	$logoequipe = $dadosequipe['logoequipe'];
 	$html = '<div id="imglogo">
-				<img src="../imagens/sejuve_logo.png"  style="width:100px; height:100px;">
-				<img src="../imagens/'.$nomelogo1.'" style="width:100px; height:100px;" id="imglogo2">
-				<img src="../imagens/'.$logoequipe.'" style="width:100px; height:100px;" id="imglogo3">
+				<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+				<img src="../imagens/'.$nomelogo1.'" style="width:80px; height:80px;" id="imglogo2">
+				<img src="../imagens/'.$logoequipe.'" style="width:80px; height:80px;" id="imglogo3">
 				
 			</div> ';
-	$html .= '<h1 align="center">Relatório</h1>';
-	
-		$html .='<h2  > EQUIPE: '.$dadosequipe['nomeequipe'].'</h2>';
-		$html .='<h3 > RESPONSAVEL: '.$dadosequipe['nomeresponsavel'].'</h3>';
 	
 	
-	$html .= '<h2 align="center">Atletas<h2>';
+			$html .= '<table id="tb1" border = 1 width = 100%>';
+			$html .= '<thead>';
+				$html .= '<tr align="center">';
+					$html .= '<td>EQUIPE</td>';
+					$html .= '<td>RESPONSAVEL</td>';
+					$html .= '<td>RG DO RESPONSAVEL</td>';
+					$html .= '<td>ENDEREÇO</td>';			
+				$html .= '</tr>';
+			$html .= '</thead>';
+			$html .='<tbody>';
+			
+				$html .='<tr align="center"><td>'.$dadosequipe['nomeequipe'].'</td>';
+				$html .='<td>'.$dadosequipe['nomeresponsavel'].'</td>';
+				$html .='<td>'.$dadosequipe['rgresponsavel'].'</td>';
+				$html .='<td>'.$dadosequipe['endereco'].'</td></tr>';
+				$html .='</tbody>';
+		
+			
+			$html .='</table>';
+	
+	
+	$html .= '<h3 align="center">ATLETAS<h3>';
 	$html .= '
 	<style>
 
@@ -59,7 +76,10 @@
 		font-family: Arial,sans-serif;
 
 	}
+			#tb1{
+				margin-top: 10%;
 
+			}
 			table {
 				border-collapse:collapse;
 				white-space: nowrap;		
@@ -75,7 +95,7 @@
 			}
 				#imglogo{
 					position: relative;
-						
+					
 				}
 				#imglogo2{
 					margin-left: 28%;
@@ -87,10 +107,10 @@
 	$html .= '<table border = 1 width = 100%>';
 	$html .= '<thead>';
 		$html .= '<tr align="center">';
-			$html .= '<td>Nome do Atleta</td>';
-			$html .= '<td>Data de Nascimento</td>';
-			$html .= '<td>Rg do Atleta</td>';
-			$html .= '<td>Naturalidade do Atleta</td>';			
+			$html .= '<td>NOME</td>';
+			$html .= '<td>DATA DE NASCIMENTO</td>';
+			$html .= '<td>RG</td>';
+			$html .= '<td>NATURALIDADE</td>';			
 		$html .= '</tr>';
 	$html .= '</thead>';
 	$html .='<tbody>';
@@ -105,12 +125,12 @@
 	
 	$html .='</table>';
 
-	$html .= '<h2 align="center">Comissão Tecnica<h2>';
+	$html .= '<h3 align="center">COMISSÃO TÉCNICA<h3>';
 	$html .= '<table border = 1 width = 100%>';
 	$html .= '<thead>';
 		$html .= '<tr align="center">';
-			$html .= '<td>Nome</td>';
-			$html .= '<td>Função</td>';			
+			$html .= '<td>NOME</td>';
+			$html .= '<td>FUNÇÃO</td>';			
 		$html .= '</tr>';
 	$html .= '</thead>';
 	$html .='<tbody>';

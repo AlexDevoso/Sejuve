@@ -4,10 +4,10 @@ if (isset($_SESSION['login'][1])) {
 	?>
 <div aria-live="polite" aria-atomic="true" style="">
   <!-- Position it -->
-  <div style="position: absolute; top: 0; right: 0;">
+  <div  style="position: absolute; top: 50; right: 10;">
 
    
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="toast shadow"  role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
       <div class="toast-header">
         <strong class="mr-auto">Sejuve</strong>
         <small class="text-muted">
@@ -63,7 +63,7 @@ setTimeout('time()',500);
 
 <div aria-live="polite" aria-atomic="true" style="">
   <!-- Position it -->
-  <div style="position: absolute; top: 0; right: 0;">
+  <div style="position: absolute; top: 50; right: 10;">
 
    
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">

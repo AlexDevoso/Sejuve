@@ -64,7 +64,7 @@ include "conexao.php";
                     if(mysqli_query($conexao, $sql)){
                        
                         header('Location: ../interface/lista_de_eventos.php');
-                        $_SESSION['login'][1] = "CADASTRADO EVENTO COM SUCESSO";
+                        $_SESSION['login'][1] = "EVENTO CADASTRADO COM SUCESSO.";
                     }
                 }
             }
@@ -73,7 +73,7 @@ include "conexao.php";
                 if(mysqli_query($conexao, $sql)){
      
                     header('Location: ../interface/lista_de_eventos.php');
-                    $_SESSION['login'][1] = "CADASTRADO EVENTO COM SUCESSO";
+                    $_SESSION['login'][1] = "EVENTO CADASTRADO COM SUCESSO.";
                     
                 }
                 else{

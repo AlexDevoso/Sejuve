@@ -36,15 +36,15 @@ if(isset($_POST['cadastrar'])){
 	
 	if($row > 0 || $nome_atleta == "" || $rg_atleta == "" ){
 		$_SESSION['login'][2] = "RG CADASTRADO OU CAMPOS VAZIOS";
-		header('Location: ../interface/consultar_atleta.php');
+		header('Location: ../interface/consultar_atletas.php');
 	}
 	else{
 	
 //se a foto foi selecionada
 if(!empty($imagem["name"])){
 	// máximo em piexels
-	$lagura = 2000;
-	$altura = 2000;
+	$lagura = 10000;
+	$altura = 10000;
 
 	//máximo em bytes
 	$tamanho = 5000000;
@@ -64,11 +64,11 @@ if(!empty($imagem["name"])){
 		$sql = "INSERT INTO atleta(nome_atleta, data_nascimento_atleta, rg_atleta, naturalidade_atleta, equipeid_fk) values ('$nome_atleta', '$data_nascimento_atleta', '$rg_atleta', '$naturalidade_atleta', '$str')";
 		if(mysqli_query($conexao, $sql)){
 			$_SESSION['login'][1] = "Cadastrado com sucesso, Imagem com dimensões erradas";
-			header('Location: ../interface/consultar_atleta.php');
+			header('Location: ../interface/consultar_atletas.php');
 		}
 		else{
 			$_SESSION['login'][2] = "Erro ao cadastrar";
-			header('Location: ../interface/consultar_atleta.php');
+			header('Location: ../interface/consultar_atletas.php');
 		}
 	}
 
@@ -92,7 +92,7 @@ if(!empty($imagem["name"])){
 		$sqlimg = "INSERT INTO atleta(nome_atleta, data_nascimento_atleta, rg_atleta, naturalidade_atleta, equipeid_fk, imagem_rg) values ('$nome_atleta', '$data_nascimento_atleta', '$rg_atleta', '$naturalidade_atleta', '$str','$nome_imagem')";
 		if(mysqli_query($conexao, $sqlimg)){
 			$_SESSION['login'][1] = "CADASTRADO COM SUCESSO";
-		header('Location: ../interface/consultar_atleta.php');
+		header('Location: ../interface/consultar_atletas.php');
 		}
 	}
 }//acaba aqui img
@@ -100,11 +100,11 @@ else{
 	$sql = "INSERT INTO atleta(nome_atleta, data_nascimento_atleta, rg_atleta, naturalidade_atleta, equipeid_fk) values ('$nome_atleta', '$data_nascimento_atleta', '$rg_atleta', '$naturalidade_atleta', '$str')";
 	if(mysqli_query($conexao, $sql)){
 		$_SESSION['login'][1] = "Cadastrado com sucesso";
-		header('Location: ../interface/consultar_atleta.php');
+		header('Location: ../interface/consultar_atletas.php');
 	}
 	else{
 		$_SESSION['login'][2] = "Erro ao cadastrar";
-		header('Location: ../interface/consultar_atleta.php');
+		header('Location: ../interface/consultar_atletas.php');
 	}
 
 }
