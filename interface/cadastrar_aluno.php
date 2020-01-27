@@ -132,7 +132,7 @@
 
 
   <div class="bg_form shadow">
-    <form action="testeboxcadastrar.php" method="POST">
+    <form action="testeboxcadastrar.php" method="POST" >
     <table class="table">
       
       <tr >

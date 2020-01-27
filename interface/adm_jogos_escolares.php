@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../funcoes/conexao.php";
-include "../funcoes/verifica_login_adm.php";
+
 ?>
 
 
