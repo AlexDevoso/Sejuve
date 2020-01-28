@@ -58,6 +58,17 @@ else{
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
 
+                       <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
 <style type="text/css">
   
 
@@ -180,8 +191,7 @@ text-decoration:none;
 
   <title>Equipes Cadastradas</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -226,8 +236,7 @@ text-decoration:none;
 
         <a id="idzin" href="atletas_database.php" class="list-group-item list-group-item-action" style="background-color: rgba(255,255,255,0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/usu_.png" style="margin-right: 10px;">  Atletas</a>
 
-         <a id="idzin" href="../funcoes/logout.php" class="list-group-item list-group-item-action" style="background-color: rgba(255,255,255,0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
-
+         
     
 
       </div>
@@ -301,24 +310,39 @@ text-decoration:none;
 
 <td style="text-align: center;">
 <a class="btn btn-primary"  href="editar_equipe_form.php?equipeid=<?php echo $dados2['equipeid']; ?>">
-<i style="color: #fff;" class="fas fa-edit"></i>
+<i style="color: #fff !important;" class="fas fa-pen"></i>
 </a>
 </td>
 
 
-<td style="text-align: center;">
-<a class="btn btn-danger"  data-toggle="modal" data-target="#modalExemplo"><i style="color: #fff;" class="fas fa-trash"></i></a>
-</td>
+<form action="../funcoes/deletar_equipe.php" method="POST" >
+            <input type="hidden" name="equipeid" value="<?php echo $dados2['equipeid'] ?>">
+       <td><button class="btn btn-danger" type="submit" name="delete"><i style="color: #fff !important;" class="fas fa-trash" ></i></button></td>
+          </form>
+
+
+
+
+
+         
+
+
+
+
+
+
+
+
+
 
 <td style="text-align: center;">
-<a class="btn btn-primary"  href="../funcoes/gerarpdf_adm.php?equipeid=<?php echo $dados2['equipeid']; ?>">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_adm.php?equipeid=<?php echo $dados2['equipeid']; ?>">
 <i style="color: #fff;" class="fas fa-print"></i>
-</a>
+</a></td>
 </tr>
 
 
         <?php } ?>
-        </form>
       </tbody>
     </table>
 
@@ -745,6 +769,29 @@ customTxt.innerHTML ="Nenhum arquivo selecionado.";
             }
     </script>
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+      $("#rg").mask("999.999.999-W", {
+        translation: {
+          'W': {
+            pattern: /[X0-9]/
+          }
+        },
+        reverse: true
+      }) });  
+
+
+    </script>
+
+ <script type="text/javascript">
+   
+   $(document).ready(function(){
+$('#telefone').mask('(00) 00000-0000');
+
+   });
+
+ </script>
 
 
 
@@ -760,9 +807,7 @@ customTxt.innerHTML ="Nenhum arquivo selecionado.";
   </div>
   <!-- /#wrapper -->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
   <!-- Menu Toggle Script -->
   <script>
