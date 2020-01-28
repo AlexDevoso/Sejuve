@@ -177,6 +177,8 @@ text-decoration:none;
 
         <a id="idzin" href="atletas_database.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/usu_.png" style="margin-right: 10px;">  Atletas</a>
 
+        <a id="idzin" href="../interface/home_jogos_escolares_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/list_.png" style="margin-right: 10px;">  Jogos Escolares</a>
+
          <a id="idzin" href="../funcoes/logout.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
 
     
@@ -195,10 +197,10 @@ text-decoration:none;
 
 
 
-<a id="voltar"  href="../funcoes/logout.php" style="float: right;">Sair</a>
+<a id="voltar"  href="#" style="float: right;">Voltar</a>
 
       </nav>
-
+      
 <br>
 
 

@@ -39,7 +39,9 @@ include "../funcoes/conexao.php";
   
 
   nav {
-background:  #2F80ED; 
+background: #396afc; 
+background: -webkit-linear-gradient(to right, #2948ff, #396afc); 
+background: linear-gradient(to right, #2948ff, #396afc);  
 
 
   }
@@ -151,17 +153,15 @@ background: #FFC837;
 
 
 #voltar:hover {
-   width: 50px !important;
+   width: 100px !important;
    text-align: center;
    border-radius: 50px;
-   background-color:#1372f2;
-   text-decoration:none;
-
+   background-color: #445df2;
  
 }
 
 #voltar {
-   width: 50px !important;
+    width: 100px !important;
    text-align: center;
    text-decoration:none;
 }
@@ -240,8 +240,7 @@ text-decoration:none;
       <div class="list-group list-group-flush  ">
         <a id="idzin" href="home_jogos_escolares_usuario.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/home2_.png" style="margin-right: 10px;">Home</a>
 
-        <a id="idzin" href="escolas_jogos_escolares.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/notebook.png" style="margin-right: 10px;">    Escolas</a>
-
+        
       
 
         <a id="idzin" href="cadastrar_escola_je.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/usu_.png" style="margin-right: 10px;">  Alunos</a>

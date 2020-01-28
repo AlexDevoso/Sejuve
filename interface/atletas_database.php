@@ -33,6 +33,8 @@ include "../funcoes/mensagem.php";
 
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
 
+
+=======
                <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -211,7 +213,13 @@ width: 30px;
 
   <title>Atletas</title>
 
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
  
+
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
 
@@ -246,7 +254,11 @@ width: 30px;
 
         <a id="idzin" href="atletas_database.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/usu_.png" style="margin-right: 10px;">  Atletas</a>
 
-     
+
+        <a id="idzin" href="../interface/home_jogos_escolares_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/list_.png" style="margin-right: 10px;">  Jogos Escolares</a>
+
+         <a id="idzin" href="../funcoes/logout.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
+
 
     
 
@@ -291,7 +303,11 @@ width: 30px;
     
 
         
+
+              <a id="voltar"  href="#" style="float: right;">Voltar</a>
+
               <a id="voltar" style="" class="nav-link" href="area_adm.php">Voltar <span class="sr-only">(current)</span></a>
+
         
           
         
@@ -360,6 +376,10 @@ width: 30px;
     <th>EDITAR</th>
     <th>EXCLUIR</th>
 
+    <th>IMPRIMIR</th>
+
+
+
 </tr>
 
 
@@ -407,6 +427,13 @@ width: 30px;
    
    
   
+
+
+<td>
+<button class="btn btn-dark">
+  <i class="fas fa-print" style="color: #fff;"></i>
+</button></td>
+=======
 
 
 
@@ -525,7 +552,14 @@ width: 30px;
   </div>
   <!-- /#wrapper -->
 
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
  
+
   <!-- Menu Toggle Script -->
   <script>
     $("#menu-toggle").click(function(e) {

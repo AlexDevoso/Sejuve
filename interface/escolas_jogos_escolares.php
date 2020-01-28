@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../funcoes/conexao.php";
-
+include "../funcoes/verifica_login_adm.php";
 ?>
 
 
@@ -114,6 +114,8 @@ width: 200px !important;
 
     border-top: none!important;
 
+
+
 }
 
 td {
@@ -161,17 +163,14 @@ text-decoration:none;
     <div class="" id="sidebar-wrapper" style="background-color: #2948ff;">
       <div class="sidebar-heading text-white">Sejuve</div>
       <div class="list-group list-group-flush  ">
-        <a id="idzin" href="home_jogos_escolares_usuario.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/home2_.png" style="margin-right: 10px;">    Home</a>
+        <a id="idzin" href="home_jogos_escolares_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/home2_.png" style="margin-right: 10px;">    Home</a>
 
         <a id="idzin" href="escolas_jogos_escolares.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/notebook.png" style="margin-right: 10px;">    Escolas</a>
 
       
+        <a id="idzin" href="modalidades_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/handball.png" style="margin-right: 10px;">  Modalidades</a>
 
-        <a id="idzin" href="cadastrar_escola_je.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/usu_.png" style="margin-right: 10px;">  Alunos</a>
-
-        <a id="idzin" href="modalidades.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/handball.png" style="margin-right: 10px;">  Modalidades</a>
-
-         <a id="idzin" href="../funcoes/logout.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
+         <a id="idzin" href="../funcoes/logout_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
 
     
 
@@ -182,14 +181,23 @@ text-decoration:none;
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-       <nav class="navbar">
+      <nav class="navbar navbar-expand-lg ">
+        <button style="background: rgb(0, 0, 0) transparent !important;" class="btn " id="menu-toggle" style="font-size: 20px;"> <i style="color: #fff;font-size: 20px;" class="fas fa-bars"></i></button>
+
+
+         <a style="" class="nav-link" href="#">Sejuve</a>
+
+
         
-<button style="background: rgb(0, 0, 0) transparent !important;" class="btn " id="menu-toggle" style="font-size: 20px;"> <i style="color: #fff;font-size: 20px;" class="fas fa-bars"></i></button>
-<a id="nav_sejuve" href="#" style="font-size: 20px;font-weight: 700;">Jogos Escolares</a>
-
-
-
-<a id="voltar"  href="../funcoes/logout.php" style="float: right;">Sair</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a id="voltar" style="" class="nav-link" href="#">Voltar <span class="sr-only">(current)</span></a>
+            </li>
+          
+        
+          </ul>
+        </div>
 
       </nav>
 
@@ -218,7 +226,7 @@ text-decoration:none;
 <center><h1>Escolas</h1></center>
 
 
-<div style="width: 95%;height: 20%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" class="shadow">
+<div style="width: 95%;height: 50%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" class="shadow">
 
 
   <table class="table table-hover">
@@ -253,25 +261,33 @@ text-decoration:none;
 
 
 <tbody>
-  
+  <?php
+      $equipesql = "SELECT * from escola";
+      $result = mysqli_query($conexao, $equipesql);
+
+    while($dados = mysqli_fetch_array($result)){
+  ?>
   <tr>
     
 <td><img width="50" src="../imagens/sistema/pre_def.jpg"></td>
-<td>EEEP Alan Pinho Tabosa</td>
-<td>23545380</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><?php echo $dados['nome'];?></td>
+<td><?php echo $dados['inep'];?></td>
+<td><?php echo $dados['endereco_escola'];?></td>
+<td><?php echo $dados['nome_responsavel_escola'];?></td>
+<td><?php echo $dados['diretor_escola'];?></td>
+<td><?php echo $dados['email'];?></td>
+<td><?php echo $dados['telefone_escola'];?></td>
+<td><?php echo $dados['login'];?></td>
+<td><?php echo $dados['senha'];?></td>
+
 
 <td><a href="" class="btn btn-primary shadow"><i class="fas fa-pen"></i></a></td>
 <td><a href="" class="btn btn-danger shadow"><i class="fas fa-trash"></i></a></td>
 
   </tr>
-
+<?php
+  }
+?>
 </tbody>
 
 
@@ -318,7 +334,7 @@ text-decoration:none;
 
 
 
-<form>
+<form  action="../funcoes/cadastrar_escola.php" method="POST" enctype="multipart/form-data>
 
 
   <div class="form-row">
@@ -344,7 +360,7 @@ text-decoration:none;
       <div class="col">
   
 <label>Nome do Diretor:</label>
-<input type="text" name="nome_diretor_escola" class="form-control">
+<input type="text" name="diretor_escola" class="form-control">
 
 </div>
   
@@ -364,7 +380,7 @@ text-decoration:none;
 <div class="col">
   
 <label>Responsável pelo Cadastro:</label>
-<input type="text" name="resp_cadastro_escola" class="form-control">
+<input type="text" name="nome_responsavel_escola" class="form-control">
 
 </div>
 
@@ -387,7 +403,7 @@ text-decoration:none;
 <div class="col">
   
 <label>E-mail:</label>
-<input type="email" name="email_escola" class="form-control">
+<input type="email" name="email" class="form-control">
 
 </div>
 
@@ -449,7 +465,7 @@ text-decoration:none;
 
 <br>
 
-  <input type="file" class="" id="real-file" name="imagem_evento" onchange="previewImagem()" hidden="hidden" >
+  <input type="file" class="" id="real-file" name="imagem_escola" onchange="previewImagem()" hidden="hidden" >
   <button class="btn btn-primary" type="button" id="custom-button" ><i class="fas fa-folder"></i>  Selecionar Arquivo</button>
  <span id="custom-text" style="color: #000;">  Nenhum Arquivo selecionado.</span>
 
@@ -462,7 +478,7 @@ text-decoration:none;
 
   
 
-<button type="button" class="btn btn-success" style="float: right;width: 170px;border-radius:50px ;">Salvar</button>
+<button type="submit" class="btn btn-success" name="cadastrar" style="float: right;width: 170px;border-radius:50px ;">Salvar</button>
 
 
 
