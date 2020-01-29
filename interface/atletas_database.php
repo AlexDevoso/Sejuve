@@ -34,7 +34,7 @@ include "../funcoes/mensagem.php";
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" rel="stylesheet">
 
 
-=======
+
                <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -304,7 +304,7 @@ width: 30px;
 
         
 
-              <a id="voltar"  href="#" style="float: right;">Voltar</a>
+              
 
               <a id="voltar" style="" class="nav-link" href="area_adm.php">Voltar <span class="sr-only">(current)</span></a>
 

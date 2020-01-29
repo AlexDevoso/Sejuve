@@ -239,7 +239,7 @@ text-decoration:none;
     <div class="" id="sidebar-wrapper" style="background-color: #2948ff;">
       <div class="sidebar-heading text-white">Sejuve</div>
       <div class="list-group list-group-flush  ">
-        <a id="idzin" href="#" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/home2_.png" style="margin-right: 10px;">    Home</a>
+        <a id="idzin" href="home_jogos_escolares_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/home2_.png" style="margin-right: 10px;">    Home</a>
 
         <a id="idzin" href="escolas_jogos_escolares.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/notebook.png" style="margin-right: 10px;">    Escolas</a>
 
@@ -317,7 +317,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div1" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="basquete.php"> 
+<a class="btn shadow col" id="div1" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="basquete_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -333,7 +333,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div2" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="futsal.php"> 
+<a class="btn shadow col" id="div2" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="futsal_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -364,7 +364,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div3" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="volei.php"> 
+<a class="btn shadow col" id="div3" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="volei_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -378,7 +378,7 @@ text-decoration:none;
 </a>
 
 
-<a class="btn shadow col" id="div4" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="handball.php"> 
+<a class="btn shadow col" id="div4" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="handball_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -433,7 +433,7 @@ text-decoration:none;
 
 <div class="form-row">
   
-<a class="btn shadow col" id="div5" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="atletismo.php"> 
+<a class="btn shadow col" id="div5" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="atletismo_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -451,7 +451,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div6" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="pingpong.php"> 
+<a class="btn shadow col" id="div6" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="pingpong_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
