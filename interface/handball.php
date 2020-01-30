@@ -249,7 +249,7 @@ html, body {
 <table class="table table-hover" style="background-color: #fff;"> 
 
   <thead style="background-color:#fff;color: #000;">
-    
+  <h2 align = 'center'>Feminino</h2>
     <tr>
       
 <td>FOTO</td>
@@ -309,7 +309,68 @@ html, body {
 
 </table>
 
+<table class="table table-hover" style="background-color: #fff;"> 
 
+  <thead style="background-color:#fff;color: #000;">
+  <h2 align='center'>Masculino</h2>
+    <tr>
+      
+<td>FOTO</td>
+<td>NOME</td>
+<td>RG</td>
+<td>DATA NASCIMENTO</td>
+<td>NAIPE</td>
+<td>CATEGORIA</td>
+
+
+    </tr>
+
+  </thead>
+  
+  <tbody>
+    <?php 
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      $total = mysqli_num_rows($resultado);
+      while($dados = mysqli_fetch_array($resultado)) {
+      ?>
+    <tr>
+      
+<td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+<td><?php echo $dados['nome']; ?></td>
+<td><?php echo $dados['rg']; ?></td>
+<td><?php echo $dados['data_nascimento_aluno']; ?></td>
+<td><?php echo $dados['categoria_mc']; ?></td>
+<td><?php echo $dados['naipe_mc']; ?></td>
+
+
+
+
+
+    </tr>
+<?php
+  }
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr>
+      
+
+  </tbody>
+
+
+
+</table>
 
 
 
