@@ -252,7 +252,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Vôlei</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 25%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
+<div id="bgzin_" style="width: 90%;height: 50%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
 
 
 <table class="table table-hover" style="background-color: #fff;overflow-y: auto;"> 
@@ -275,7 +275,7 @@ width: 100% !important;
   
   <tbody>
     <?php 
-      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade'";
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade' and categoria_mc = 'feminino'";
       $resultado = mysqli_query($conexao, $sqlEscola);  
       $total = mysqli_num_rows($resultado);
       while($dados = mysqli_fetch_array($resultado)) {
@@ -331,7 +331,7 @@ width: 100% !important;
   
   <tbody>
     <?php 
-      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade'";
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade' and categoria_mc = 'masculino'";
       $resultado = mysqli_query($conexao, $sqlEscola);  
       $total = mysqli_num_rows($resultado);
       while($dados = mysqli_fetch_array($resultado)) {

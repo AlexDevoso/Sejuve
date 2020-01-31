@@ -243,13 +243,13 @@ html, body {
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Tênis de Mesa</h1></center>
 
 
-<div style="width: 90%;height: 40%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+<div style="width: 90%;height: 50%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
 
   <thead style="background-color:#fff;color: #000;">
-    
+  <h2 align = "center">Feminino</h2>
     <tr>
       
 <td>FOTO</td>
@@ -268,7 +268,7 @@ html, body {
   <tbody>
     <?php 
       
-      $sqlEscola = "SELECT * FROM aluno join modalidade_individual where escola_id_fk = '$id' and modalidade_individualid_fk = '$idModalidade' and modalidade_individualid = '$idModalidade'";
+      $sqlEscola = "SELECT * FROM aluno join modalidade_individual where escola_id_fk = '$id' and modalidade_individualid_fk = '$idModalidade' and modalidade_individualid = '$idModalidade' and categoria_mi = 'feminino'";
       $resultado = mysqli_query($conexao, $sqlEscola);  
       $total = mysqli_num_rows($resultado);
       while($dados = mysqli_fetch_array($resultado)) {
@@ -300,7 +300,59 @@ html, body {
 
 </table>
 
+<table class="table table-hover" style="background-color: #fff;"> 
 
+  <thead style="background-color:#fff;color: #000;">
+  <h2 align = "center">Masculino</h2>
+    <tr>
+      
+<td>FOTO</td>
+<td>NOME</td>
+<td>RG</td>
+<td>DATA NASCIMENTO</td>
+<td>NAIPE</td>
+<td>CATEGORIA</td>
+<td>EDITAR</td>
+<td>EXCLUIR</td>
+
+    </tr>
+
+  </thead>
+  
+  <tbody>
+    <?php 
+      
+      $sqlEscola = "SELECT * FROM aluno join modalidade_individual where escola_id_fk = '$id' and modalidade_individualid_fk = '$idModalidade' and modalidade_individualid = '$idModalidade' and categoria_mi = 'masculino'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      $total = mysqli_num_rows($resultado);
+      while($dados = mysqli_fetch_array($resultado)) {
+      ?>
+    <tr>
+      
+<td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+<td><?php echo $dados['nome']; ?></td>
+<td><?php echo $dados['rg']; ?></td>
+<td><?php echo $dados['data_nascimento_aluno']; ?></td>
+<td><?php echo $dados['categoria_mc']; ?></td>
+<td><?php echo $dados['naipe_mc']; ?></td>
+
+
+
+    </tr>
+
+<?php
+  }
+ ?>
+
+
+
+        
+
+  </tbody>
+
+
+
+</table>
 
 
 

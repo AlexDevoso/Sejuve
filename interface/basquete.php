@@ -247,7 +247,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Basquete</h1></center>
 <br>
 
-<div id="bgzin_" style="width: 80%;height: 30%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+<div id="bgzin_" style="width: 80%;height: 50%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
