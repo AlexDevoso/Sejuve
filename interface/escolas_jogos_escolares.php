@@ -282,8 +282,11 @@ text-decoration:none;
 
 
 <td><a href="" class="btn btn-primary shadow"><i class="fas fa-pen"></i></a></td>
-<td><a href="" class="btn btn-danger shadow"><i class="fas fa-trash"></i></a></td>
 
+<form action="../funcoes/deletar_escola.php" method="POST">
+<input type="hidden" name="escola_id" value="<?php echo $dados['escola_id'];?>">
+<td style="text-align: center;"> <button class="btn btn-danger" type="submit" name="delete"><i style="color: #fff !important;" class="fas fa-trash" ></i></button></td>
+</form>
   </tr>
 <?php
   }
@@ -308,9 +311,10 @@ text-decoration:none;
 
 <div style="width: 95%;margin-left: auto;margin-right: auto;margin-top: 20px;">
 
-<button type="button"class="btn btn-success" style="width: 170px;border-radius: 50px;float: right;" data-toggle="modal" data-target=".bd-example-modal-lg">
+<button type="button" class="btn btn-success" style="width: 170px;border-radius: 50px;float: right;" data-toggle="modal" data-target=".bd-example-modal-lg">
  Nova Escola
 </button>
+
   </div>
 
 
@@ -334,7 +338,7 @@ text-decoration:none;
 
 
 
-<form  action="../funcoes/cadastrar_escola.php" method="POST" enctype="multipart/form-data>
+<form  action="../funcoes/cadastrar_escola.php" method="POST" enctype="multipart/form-data">
 
 
   <div class="form-row">
@@ -455,9 +459,10 @@ text-decoration:none;
 <br>
   <div class="form-row">
     
-<label>Logo do Evento:</label>
+
 
 <div class="col">
+<label>Logo da Escola:</label>
 <div style="display: flex;align-items: center;justify-content: center;">
   <img width="150" id="pre_img" src="../imagens/sistema/pre_img.png">
 
@@ -466,7 +471,7 @@ text-decoration:none;
 <br>
 
   <input type="file" class="" id="real-file" name="imagem_escola" onchange="previewImagem()" hidden="hidden" >
-  <button class="btn btn-primary" type="button" id="custom-button" ><i class="fas fa-folder"></i>  Selecionar Arquivo</button>
+  <button class="btn btn-primary" type="button" id="custom-button" ><i class="fas fa-folder" align = "center";></i>  Selecionar Arquivo</button>
  <span id="custom-text" style="color: #000;">  Nenhum Arquivo selecionado.</span>
 
 </div>
