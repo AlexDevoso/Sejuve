@@ -19,7 +19,7 @@ if(isset($_POST['cadastrar'])){
 
 	if($row > 0){
 		$_SESSION['login'][1] = "Escola já cadastrada";
-		header("Location: ../interface/escolas.php");
+		header("Location: ../interface/escolas_jogos_escolares.php");
 	}
 	else{
 		//se a foto foi selecionada
@@ -46,11 +46,11 @@ if(!empty($imagem["name"])){
 		$sql = "INSERT INTO escola(nome, inep, login, senha, endereco_escola, nome_responsavel_escola, diretor_escola, email, telefone_escola) values ('$nome', '$inep', '$login', '$senha','$endereco_escola','$nome_responsavel_escola','$diretor_escola','$email','$telefone_escola')";
 		if(mysqli_query($conexao, $sql)){
 			$_SESSION['login'][1] = "Cadastrado com sucesso, Imagem com dimensões erradas";
-			header('Location: ../interface/escolas.php');
+			header('Location: ../interface/escolas_jogos_escolares.php');
 		}
 		else{
 			$_SESSION['login'][2] = "Erro ao cadastrar";
-			header('Location: ../interface/escolas.php');
+			header('Location: ../interface/escolas_jogos_escolares.php');
 		}
 	}
 
@@ -74,7 +74,7 @@ if(!empty($imagem["name"])){
 		$sqlimg = "INSERT INTO escola(nome, inep, login, senha, imagem, endereco_escola, nome_responsavel_escola, diretor_escola, email, telefone_escola ) values ('$nome', '$inep', '$login', '$senha', '$nome_imagem', '$endereco_escola', '$nome_responsavel_escola', '$diretor_escola', '$email', '$telefone_escola')";
 		if(mysqli_query($conexao, $sqlimg)){
 			$_SESSION['login'][1] = "CADASTRADO COM SUCESSO";
-		header('Location: ../interface/escolas.php');
+		header('Location: ../interface/escolas_jogos_escolares.php');
 		}
 	}
 }//acaba aqui img
@@ -84,11 +84,11 @@ else{
 	
 	if($resu = mysqli_query($conexao, $sql)){
 		$_SESSION['login'][1] = "CADASTRADO COM SUCESSO";
-		header("Location: ../interface/escolas.php");
+		header("Location: ../interface/escolas_jogos_escolares.php");
 	}
 	else{
 		$_SESSION['login'][2] = "ERRO AO CADASTRAR";
-		header("Location: ../interface/escolas.php");	
+		header("Location: ../interface/escolas_jogos_escolares.php");	
 	}
 
 }
