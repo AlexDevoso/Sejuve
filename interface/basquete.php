@@ -261,7 +261,8 @@ width: 100% !important;
 <td>RG</td>
 <td>DATA NASCIMENTO</td>
 <td>NAIPE</td>
-<td>CATEGORIA</td>
+<td>12 a 14</td>
+<td>15 a 17</td>
 
     </tr>
 
@@ -282,9 +283,8 @@ width: 100% !important;
 <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
-<td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td><?php echo $dados['categoria_mc']; ?></td>
-<td><?php echo $dados['naipe_mc']; ?></td>
+
+
 
 
 
@@ -311,8 +311,8 @@ width: 100% !important;
 <td>RG</td>
 <td>DATA NASCIMENTO</td>
 <td>NAIPE</td>
-
-
+<td>12 a 14</td>
+<td>15 a 17</td>
     </tr>
 
 
@@ -320,11 +320,29 @@ width: 100% !important;
   </thead>
   
   <tbody>
-   <?php 
+  <?php 
 
       $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade' and categoria_mc = 'masculino'";
       $resultado = mysqli_query($conexao, $sqlEscola);  
       $total = mysqli_num_rows($resultado);
+      $dados = mysqli_fetch_array($resultado);
+      ?>
+  
+  <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+  <td><?php echo $dados['nome']; ?></td>
+  <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td><?php echo $dados['naipe_mc']; ?></td>
+  <td style="text-align: center;">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
+<i style="color: #fff;" class="fas fa-print"></i>
+</a></td>
+<td style="text-align: center;">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletiva_fk']; ?>">
+<i style="color: #fff;" class="fas fa-print"></i>
+</a></td>
+   <?php 
+
       while($dados = mysqli_fetch_array($resultado)) {
       ?>
     <tr>
@@ -338,11 +356,15 @@ width: 100% !important;
 
 
 
-
-    </tr>
 <?php
   }
  ?>
+
+</tr>  
+  
+ 
+    
+
   </tbody>
 
 
