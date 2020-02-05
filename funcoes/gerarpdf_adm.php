@@ -1,6 +1,6 @@
 <?php
-				include "conexao.php";
-				session_start();
+			include "conexao.php";
+			session_start();
 			if (isset($_GET['equipeid'])) {
 		  			$equipeid = $_GET['equipeid'];
 		  	}
@@ -10,7 +10,7 @@
   			$resus = mysqli_query($conexao, $seleciona);
   			$verificaid = mysqli_fetch_row($resus);
   			$str = implode($verificaid);
-			//mostrar id do evento
+			//mostrar id do eventos
 			$seleciona2 = "SELECT idevento_fk from equipe_evento where equipeid_fk = '$equipeid'";
   			$resus2 = mysqli_query($conexao, $seleciona2);
   			$verificaid2 = mysqli_fetch_row($resus2);
@@ -83,7 +83,7 @@
 
 	body {
 		font-family: Arial,sans-serif;
-
+		text-transform: uppercase;
 	}
 			#tb1{
 				margin-top: 10%;

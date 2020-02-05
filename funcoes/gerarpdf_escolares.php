@@ -3,7 +3,7 @@
 	session_start();
 	if (isset($_GET['modalidade_coletivaid'])) {
 		$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
-}
+	}
 	$verifica = $_SESSION['login_escola'][0];
   	$seleciona = "SELECT escola_id from escola where login = '$verifica'";
   	$resus = mysqli_query($conexao, $seleciona);
@@ -50,7 +50,7 @@
 
 	body {
 		font-family: Arial,sans-serif;
-
+		text-transform: uppercase;
 	}
 
 			table {
