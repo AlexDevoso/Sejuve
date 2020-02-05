@@ -8,11 +8,26 @@ $re = mysqli_query($conexao, $mostrar);
 $linhas = mysqli_fetch_row($re);
 $id = implode($linhas);
 
-//selecionando id da modalidade
-$mostrarModalidade = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'handebol'";
-$reModalidade = mysqli_query($conexao, $mostrarModalidade);
-$linhasModalidade = mysqli_fetch_row($reModalidade);
-$idModalidade = implode($linhasModalidade);
+//selecionando id da modalidade 12 a 14 masculino
+$mostrarModalidadem12 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'handebol' and categoria_mc = 'masculino' and naipe_mc = '12a14'";
+$reModalidadem12 = mysqli_query($conexao, $mostrarModalidadem12);
+$linhasModalidadem12 = mysqli_fetch_row($reModalidadem12);
+$idModalidadem12 = implode($linhasModalidadem12);
+//selecionando id da modalidade 15 a 17 masculino
+$mostrarModalidadem15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'handebol' and categoria_mc = 'masculino' and naipe_mc = '12a14'";
+$reModalidadem15 = mysqli_query($conexao, $mostrarModalidadem15);
+$linhasModalidadef15 = mysqli_fetch_row($reModalidadem15);
+$idModalidadem15 = implode($linhasModalidadem15);
+//selecionando id da modalidade 12 a 14 feminino
+$mostrarModalidadef12 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'handebol' and categoria_mc = 'feminino' and naipe_mc = '12a14'";
+$reModalidadef12 = mysqli_query($conexao, $mostrarModalidadef12);
+$linhasModalidadef12 = mysqli_fetch_row($reModalidadef12);
+$idModalidadef12 = implode($linhasModalidadef12);
+//selecionando id da modalidade 15 a 17 feminino
+$mostrarModalidadef15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'handebol' and categoria_mc = 'feminino' and naipe_mc = '12a14'";
+$reModalidadef15 = mysqli_query($conexao, $mostrarModalidadef15);
+$linhasModalidadef15 = mysqli_fetch_row($reModalidadef15);
+$idModalidadef15 = implode($linhasModalidadef15);
 ?>
 
 
