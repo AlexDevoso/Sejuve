@@ -98,7 +98,7 @@
     width: 100px !important;
     text-align: center;
     border-radius: 50px;
-    background-color:;
+    
   }
 
   #voltar {
@@ -288,7 +288,7 @@
     <tbody>
     <?php 
 
-        $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade' and categoria_mc = 'feminino'";
+        $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem12' and modalidade_coletivaid = '$idModalidadem12' on modalidade_coletivaid_fk = modalidade_coletiva";
         $resultado = mysqli_query($conexao, $sqlEscola);  
         $total = mysqli_num_rows($resultado);
         while($dados = mysqli_fetch_array($resultado)) {
@@ -335,13 +335,13 @@
     </thead>
     
     <tbody>
-    <?php 
+      <?php 
 
-        $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidade' and modalidade_coletivaid = '$idModalidade' and categoria_mc = 'masculino'";
-        $resultado = mysqli_query($conexao, $sqlEscola);  
-        $total = mysqli_num_rows($resultado);
-        $dados = mysqli_fetch_array($resultado);
-        ?>
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem15' and modalidade_coletivaid = '$idModalidadem15'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      $total = mysqli_num_rows($resultado);
+      $dados = mysqli_fetch_array($resultado);
+      ?>
     
     <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
     <td><?php echo $dados['nome']; ?></td>
