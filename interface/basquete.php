@@ -14,9 +14,9 @@
   $linhasModalidadem12 = mysqli_fetch_row($reModalidadem12);
   $idModalidadem12 = implode($linhasModalidadem12);
   //selecionando id da modalidade 15 a 17 masculino
-  $mostrarModalidadem15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'masculino' and naipe_mc = '12a14'";
+  $mostrarModalidadem15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'masculino' and naipe_mc = '15a17'";
   $reModalidadem15 = mysqli_query($conexao, $mostrarModalidadem15);
-  $linhasModalidadef15 = mysqli_fetch_row($reModalidadem15);
+  $linhasModalidadem15 = mysqli_fetch_row($reModalidadem15);
   $idModalidadem15 = implode($linhasModalidadem15);
   //selecionando id da modalidade 12 a 14 feminino
   $mostrarModalidadef12 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'feminino' and naipe_mc = '12a14'";
@@ -24,7 +24,7 @@
   $linhasModalidadef12 = mysqli_fetch_row($reModalidadef12);
   $idModalidadef12 = implode($linhasModalidadef12);
   //selecionando id da modalidade 15 a 17 feminino
-  $mostrarModalidadef15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'feminino' and naipe_mc = '12a14'";
+  $mostrarModalidadef15 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'feminino' and naipe_mc = '15a17'";
   $reModalidadef15 = mysqli_query($conexao, $mostrarModalidadef15);
   $linhasModalidadef15 = mysqli_fetch_row($reModalidadef15);
   $idModalidadef15 = implode($linhasModalidadef15);
@@ -262,13 +262,16 @@
   <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Basquete</h1></center>
   <br>
 
-  <div id="bgzin_" style="width: 80%;height: 50%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+  <div id="bgzin_" style="width: 90%;height: 50%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
 
 
   <table class="table table-hover" style="background-color: #fff;"> 
 
     <thead style="background-color:#fff;color: #000;">
+    <div>
     <h2 align = "center">Feminino</h2>
+    <h3 align = "center">12 a 14</h3>
+    </div>
       <tr>
         
   <td>FOTO</td>
@@ -277,6 +280,54 @@
   <td>DATA NASCIMENTO</td>
   <td>NAIPE</td>
   <td>12 a 14</td>
+  
+
+      </tr>
+
+
+    
+    </thead>
+    
+    <tbody>
+    <?php 
+
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef12' and modalidade_coletivaid = '$idModalidadef12'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      
+      $dados = mysqli_fetch_array($resultado);
+      ?>
+        
+  <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+  <td><?php echo $dados['nome']; ?></td>
+  <td><?php echo $dados['rg']; ?></td>
+
+
+
+
+
+
+
+      </tr>
+  
+    </tbody>
+
+
+
+  </table>
+
+<!-- tabela feminina-->
+<table class="table table-hover" style="background-color: #fff;"> 
+
+    <thead style="background-color:#fff;color: #000;">
+    <h2 align = "center">Feminino</h2>
+    <h3 align = "center">15 a 17</h3>
+      <tr>
+        
+  <td>FOTO</td>
+  <td>NOME</td>
+  <td>RG</td>
+  <td>DATA NASCIMENTO</td>
+  <td>NAIPE</td>
   <td>15 a 17</td>
 
       </tr>
@@ -288,11 +339,11 @@
     <tbody>
     <?php 
 
-        $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem12' and modalidade_coletivaid = '$idModalidadem12' on modalidade_coletivaid_fk = modalidade_coletiva";
-        $resultado = mysqli_query($conexao, $sqlEscola);  
-        $total = mysqli_num_rows($resultado);
-        while($dados = mysqli_fetch_array($resultado)) {
-        ?>
+    $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef15' and modalidade_coletivaid = '$idModalidadef15'";
+    $resultado = mysqli_query($conexao, $sqlEscola);  
+
+    $dados = mysqli_fetch_array($resultado);
+    ?>
       <tr>
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
@@ -306,19 +357,18 @@
 
 
       </tr>
-  <?php
-    }
-  ?>
+  
     </tbody>
 
 
 
   </table>
-
+<!-- tabela masculina -->
   <table class="table table-hover" style="background-color: #fff;"> 
 
     <thead style="background-color:#fff;color: #000;">
       <h2 align = "center">Masculino</h2>
+      <h3 align = "center">12 a 14</h3>
       <tr>
         
   <td>FOTO</td>
@@ -327,7 +377,6 @@
   <td>DATA NASCIMENTO</td>
   <td>NAIPE</td>
   <td>12 a 14</td>
-  <td>15 a 17</td>
       </tr>
 
 
@@ -337,9 +386,9 @@
     <tbody>
       <?php 
 
-      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem15' and modalidade_coletivaid = '$idModalidadem15'";
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem12' and modalidade_coletivaid = '$idModalidadem12'";
       $resultado = mysqli_query($conexao, $sqlEscola);  
-      $total = mysqli_num_rows($resultado);
+      
       $dados = mysqli_fetch_array($resultado);
       ?>
     
@@ -375,8 +424,9 @@
     }
   ?>
 
-  </tr>  
-    
+  </tr>
+
+
   
       
 
@@ -386,78 +436,93 @@
 
   </table>
 
+<!-- tabela 15 a 17 -->
+<table class="table table-hover" style="background-color: #fff;"> 
 
-
-
-
+<thead style="background-color:#fff;color: #000;">
+  <h2 align = "center">Masculino</h2>
+  <h3 align = "center">15 a 17</h3>
+  <tr>
     
+<td>FOTO</td>
+<td>NOME</td>
+<td>RG</td>
+<td>DATA NASCIMENTO</td>
+<td>NAIPE</td>
+<td>12 a 14</td>
+<td>15 a 17</td>
+  </tr>
 
-  </div>
 
 
+</thead>
 
-  <div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" >
+<tbody>
+  <?php 
 
+  $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadem15' and modalidade_coletivaid = '$idModalidadem15'";
+  $resultado = mysqli_query($conexao, $sqlEscola);  
+  
+  $dados = mysqli_fetch_array($resultado);
+  ?>
 
-  <div id="cont_" class="shadow" style="width: 400px;height:150px;background-color: #fff;border-radius: 5px;padding: 20px;display: flex;align-items: center;justify-content: center;">
+<td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+<td><?php echo $dados['nome']; ?></td>
+<td><?php echo $dados['rg']; ?></td>
+<td><?php echo $dados['data_nascimento_aluno']; ?></td>
+<td><?php echo $dados['naipe_mc']; ?></td>
+<td style="text-align: center;">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
+<i style="color: #fff;" class="fas fa-print"></i>
+</a></td>
+<td style="text-align: center;">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletiva_fk']; ?>">
+<i style="color: #fff;" class="fas fa-print"></i>
+</a></td>
+<?php 
+
+    while($dados = mysqli_fetch_array($resultado)) {
+    ?>
+  <tr>
     
-
-  <div>
-    
-  <img width="70" src="../imagens/cards/basquete_c.png" style="margin-right: 20px;">
-
-  </div>
-
-
-    <div>
-    <center><h4>Total de Jogadores</h4></center>
-    <center><h2> <?php echo $total; ?>/20 </h2></center>
-  </div>
-
-  </div>
-
-  </div>
+<td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+<td><?php echo $dados['nome']; ?></td>
+<td><?php echo $dados['rg']; ?></td>
+<td><?php echo $dados['data_nascimento_aluno']; ?></td>
+<td><?php echo $dados['naipe_mc']; ?></td>
 
 
 
 
+<?php
+}
+?>
+
+</tr>
 
 
 
+  
+
+</tbody>
 
 
 
+</table>
+
+</div>
 
 
 
+<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" >
+
+
+  
+
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
       <!-- /#page-content-wrapper -->
 
