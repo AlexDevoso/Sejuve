@@ -168,7 +168,6 @@ text-decoration:none;
         <a id="idzin" href="escolas_jogos_escolares.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0);font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/notebook.png" style="margin-right: 10px;">    Escolas</a>
 
       
-        <a id="idzin" href="modalidades_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/handball.png" style="margin-right: 10px;">  Modalidades</a>
 
          <a id="idzin" href="../funcoes/logout_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/off.png" style="margin-right: 10px;">  Sair</a>
 
@@ -246,7 +245,7 @@ text-decoration:none;
   <td>SENHA</td>
   <td>EDITAR</td>
   <td>EXCLUIR</td> 
-
+  <td>ENTRAR</td>
 
 
 
@@ -286,6 +285,7 @@ text-decoration:none;
 <form action="../funcoes/deletar_escola.php" method="POST">
 <input type="hidden" name="escola_id" value="<?php echo $dados['escola_id'];?>">
 <td style="text-align: center;"> <button class="btn btn-danger" type="submit" name="delete"><i style="color: #fff !important;" class="fas fa-trash" ></i></button></td>
+<td style="text-align: center;"><a style="color:#000;" class="btn btn-dark" href="modalidades_adm.php?escola_id=<?php echo $dados['escola_id'];?>" ><i style="color: #fff;" class="fas fa-sign-in-alt"> </i></a></td>
 </form>
   </tr>
 <?php

@@ -2,6 +2,9 @@
 session_start();
 include "../funcoes/conexao.php";
 include "../funcoes/verifica_login_adm.php";
+if(isset($_GET['escola_id'])){
+  $escola_id = $_GET['escola_id'];
+}
 ?>
 
 
@@ -247,7 +250,6 @@ text-decoration:none;
 
         
 
-        <a id="idzin" href="modalidades_adm.php" class="list-group-item list-group-item-action" style="background-color: rgba(255, 255, 255, 0.0); font-size: 18px;display: flex;justify-content: left;align-items: center;"><img width="20" height="20" src="../imagens/menu_icones/handball.png" style="margin-right: 10px;">  Modalidades</a>
 
          
 
@@ -316,8 +318,8 @@ text-decoration:none;
 
 
 
+<a class="btn shadow col" id="div1" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="basquete_adm.php?escola_id=<?php echo $escola_id;?>">
 
-<a class="btn shadow col" id="div1" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="basquete_adm.php"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -333,7 +335,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div2" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="futsal_adm.php"> 
+<a class="btn shadow col" id="div2" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="futsal_adm.php?escola_id=<?php echo $escola_id;?>"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -364,7 +366,7 @@ text-decoration:none;
 
 
 
-<a class="btn shadow col" id="div3" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="volei_adm.php"> 
+<a class="btn shadow col" id="div3" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="volei_adm.php?escola_id=<?php echo $escola_id;?>">
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   
@@ -378,7 +380,7 @@ text-decoration:none;
 </a>
 
 
-<a class="btn shadow col" id="div4" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="handball_adm.php"> 
+<a class="btn shadow col" id="div4" style="width: 100px;height: 80px;border-radius: 10px;margin: 10px;" href="handball_adm.php?escola_id=<?php echo $escola_id;?>"> 
 
  <div style="display: flex;align-items:center;justify-content: center;padding: 10px;">
   

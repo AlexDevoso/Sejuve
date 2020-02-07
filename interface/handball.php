@@ -273,7 +273,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Handebol</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 50%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+<div id="bgzin_" style="width: 90%;height: 45%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
@@ -281,9 +281,7 @@ width: 100% !important;
     <thead style="background-color:#fff;color: #000;">
     <div>
     <h2 align = "center">Feminino</h2>
-    <h3 align = "center">
-    <p>12 a 14</p>
-    </h3>
+    <h3 align = "center">12 a 14</h3>
     </div>
       <tr>
         
@@ -291,8 +289,7 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>12 a 14</td>
+  <td>RELATÓRIO</td>
   
 
       </tr>
@@ -304,17 +301,40 @@ width: 100% !important;
     <tbody>
     <?php 
 
-    $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef12' and modalidade_coletivaid = '$idModalidadef12'";
-    $resultado = mysqli_query($conexao, $sqlEscola);  
-  
-    $dados = mysqli_fetch_array($resultado);
-    ?>
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef12' and modalidade_coletivaid = '$idModalidadef12'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      
+      $dados = mysqli_fetch_array($resultado);
+      ?>
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td style="text-align: center;">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
+  <i style="color: #fff;" class="fas fa-print"></i>
+  </a></td>
 
-</tr>
+  <?php 
+
+  while($dados = mysqli_fetch_array($resultado)) {
+  ?>
+  <tr>
+    <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+    <td><?php echo $dados['nome']; ?></td>
+    <td><?php echo $dados['rg']; ?></td>
+    <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+
+
+
+
+
+  <?php
+  }
+  ?>
+  </tr>
+  
     </tbody>
 
 
@@ -333,8 +353,7 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>15 a 17</td>
+  <td>RELATÓRIO</td>
 
       </tr>
 
@@ -347,17 +366,38 @@ width: 100% !important;
 
     $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef15' and modalidade_coletivaid = '$idModalidadef15'";
     $resultado = mysqli_query($conexao, $sqlEscola);  
-    
+
     $dados = mysqli_fetch_array($resultado);
     ?>
+      
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td style="text-align: center;">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
+  <i style="color: #fff;" class="fas fa-print"></i>
+  </a></td>
+
+  <?php 
+
+        while($dados = mysqli_fetch_array($resultado)) {
+        ?>
+      <tr>
+        
+  <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+  <td><?php echo $dados['nome']; ?></td>
+  <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  
 
 
 
 
+  <?php
+    }
+  ?>
 
 
 
@@ -380,8 +420,8 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>12 a 14</td>
+  <td>RELATÓRIO</td>
+  
       </tr>
 
 
@@ -401,13 +441,8 @@ width: 100% !important;
     <td><?php echo $dados['nome']; ?></td>
     <td><?php echo $dados['rg']; ?></td>
     <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-    <td><?php echo $dados['naipe_mc']; ?></td>
     <td style="text-align: center;">
-  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
-  <i style="color: #fff;" class="fas fa-print"></i>
-  </a></td>
-  <td style="text-align: center;">
-  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletiva_fk']; ?>">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
   <i style="color: #fff;" class="fas fa-print"></i>
   </a></td>
     <?php 
@@ -420,7 +455,7 @@ width: 100% !important;
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
   <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-  <td><?php echo $dados['naipe_mc']; ?></td>
+  
 
 
 
@@ -453,9 +488,7 @@ width: 100% !important;
 <td>NOME</td>
 <td>RG</td>
 <td>DATA NASCIMENTO</td>
-<td>NAIPE</td>
-<td>12 a 14</td>
-<td>15 a 17</td>
+<td>RELATÓRIO</td>
   </tr>
 
 
@@ -475,13 +508,10 @@ width: 100% !important;
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
 <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td><?php echo $dados['naipe_mc']; ?></td>
 <td style="text-align: center;">
-<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
 <i style="color: #fff;" class="fas fa-print"></i>
 </a></td>
-
-
 <?php 
 
     while($dados = mysqli_fetch_array($resultado)) {
@@ -492,7 +522,6 @@ width: 100% !important;
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
 <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td><?php echo $dados['naipe_mc']; ?></td>
 
 
 

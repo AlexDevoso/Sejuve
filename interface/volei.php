@@ -75,7 +75,6 @@ background: #000;
 }
 
 a {
-
   color: #fff !important;
 }
 
@@ -93,16 +92,16 @@ background-color: #121212 !important;
 
 
 #voltar:hover {
-   width: 100px !important;
-   text-align: center;
-   border-radius: 50px;
-   
-}
+    width: 100px !important;
+    text-align: center;
+    border-radius: 50px;
+    
+  }
 
-#voltar {
-   width: 100px !important;
-   text-align: center;
-}
+  #voltar {
+    width: 100px !important;
+    text-align: center;
+  }
 
 
 .bg_form_2 {
@@ -156,23 +155,32 @@ html, body {
 text-decoration:none;
  }
 
+ #voltar:hover {
+    width: 50px !important;
+    text-align: center;
+    border-radius: 50px;
+    background-color:#820a0a;
+    text-decoration:none;
+
+  
+  }
+
+  #voltar {
+    width: 100px !important;
+    text-align: center;
+    
+  }
+
   @media (max-width: 576px) { 
 
-#cont_ {
-width: 100% !important;  
-}
+  #cont_ {
+  width: 100% !important;  
+  }
 
-#bgzin_ {
-  height: 10% !important;
- }
-}
-
-
-
-
-
-
-
+  #bgzin_ {
+    height: 10% !important;
+  }
+  }
 
 </style>
 
@@ -203,7 +211,7 @@ width: 100% !important;
       <div class="sidebar-heading text-white">
         
 
-<div style="display: flex;align-items: center;justify-content: center;">
+<div style="display: flex;align-items: center; justify-content: center;">
         <img width="50" src="../imagens/sejuve_logo.png"><h2>Sejuve</h2>
 </div>
 
@@ -229,10 +237,10 @@ width: 100% !important;
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar ">
         
             <button style="background: rgb(0, 0, 0) transparent !important;" class="btn " id="menu-toggle" style="font-size: 20px;"> <i style="color: #fff;font-size: 20px;" class="fas fa-bars"></i></button>
-  <a id="nav_sejuve" href="#" style="font-size: 20px;font-weight: 700;">Jogos Escolares</a>
+  <a id="nav_sejuve" href="#" style="font-size: 20px; font-weight: 700;">Jogos Escolares</a>
 
 
 
@@ -282,8 +290,7 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>12 a 14</td>
+  <td>RELATÓRIO</td>
   
 
       </tr>
@@ -295,17 +302,40 @@ width: 100% !important;
     <tbody>
     <?php 
 
-    $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef12' and modalidade_coletivaid = '$idModalidadef12'";
-    $resultado = mysqli_query($conexao, $sqlEscola);  
-  
-    $dados = mysqli_fetch_array($resultado);
-    ?>
+      $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef12' and modalidade_coletivaid = '$idModalidadef12'";
+      $resultado = mysqli_query($conexao, $sqlEscola);  
+      
+      $dados = mysqli_fetch_array($resultado);
+      ?>
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td style="text-align: center;">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
+  <i style="color: #fff;" class="fas fa-print"></i>
+  </a></td>
 
-</tr>
+  <?php 
+
+  while($dados = mysqli_fetch_array($resultado)) {
+  ?>
+  <tr>
+    <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+    <td><?php echo $dados['nome']; ?></td>
+    <td><?php echo $dados['rg']; ?></td>
+    <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+
+
+
+
+
+  <?php
+  }
+  ?>
+  </tr>
+  
     </tbody>
 
 
@@ -324,8 +354,7 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>15 a 17</td>
+  <td>RELATÓRIO</td>
 
       </tr>
 
@@ -338,17 +367,38 @@ width: 100% !important;
 
     $sqlEscola = "SELECT * FROM aluno join modalidade_coletiva where escola_id_fk = '$id' and modalidade_coletivaid_fk = '$idModalidadef15' and modalidade_coletivaid = '$idModalidadef15'";
     $resultado = mysqli_query($conexao, $sqlEscola);  
-    
+
     $dados = mysqli_fetch_array($resultado);
     ?>
+      
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td style="text-align: center;">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
+  <i style="color: #fff;" class="fas fa-print"></i>
+  </a></td>
+
+  <?php 
+
+        while($dados = mysqli_fetch_array($resultado)) {
+        ?>
+      <tr>
+        
+  <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
+  <td><?php echo $dados['nome']; ?></td>
+  <td><?php echo $dados['rg']; ?></td>
+  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  
 
 
 
 
+  <?php
+    }
+  ?>
 
 
 
@@ -371,8 +421,8 @@ width: 100% !important;
   <td>NOME</td>
   <td>RG</td>
   <td>DATA NASCIMENTO</td>
-  <td>NAIPE</td>
-  <td>12 a 14</td>
+  <td>RELATÓRIO</td>
+  
       </tr>
 
 
@@ -392,13 +442,8 @@ width: 100% !important;
     <td><?php echo $dados['nome']; ?></td>
     <td><?php echo $dados['rg']; ?></td>
     <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-    <td><?php echo $dados['naipe_mc']; ?></td>
     <td style="text-align: center;">
-  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
-  <i style="color: #fff;" class="fas fa-print"></i>
-  </a></td>
-  <td style="text-align: center;">
-  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletiva_fk']; ?>">
+  <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
   <i style="color: #fff;" class="fas fa-print"></i>
   </a></td>
     <?php 
@@ -411,7 +456,7 @@ width: 100% !important;
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
   <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-  <td><?php echo $dados['naipe_mc']; ?></td>
+  
 
 
 
@@ -444,9 +489,7 @@ width: 100% !important;
 <td>NOME</td>
 <td>RG</td>
 <td>DATA NASCIMENTO</td>
-<td>NAIPE</td>
-<td>12 a 14</td>
-<td>15 a 17</td>
+<td>RELATÓRIO</td>
   </tr>
 
 
@@ -466,13 +509,8 @@ width: 100% !important;
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
 <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td><?php echo $dados['naipe_mc']; ?></td>
 <td style="text-align: center;">
-<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $idModalidade; ?>">
-<i style="color: #fff;" class="fas fa-print"></i>
-</a></td>
-<td style="text-align: center;">
-<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletiva_fk']; ?>">
+<a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
 <i style="color: #fff;" class="fas fa-print"></i>
 </a></td>
 <?php 
@@ -485,7 +523,6 @@ width: 100% !important;
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
 <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td><?php echo $dados['naipe_mc']; ?></td>
 
 
 

@@ -33,9 +33,7 @@ include "../funcoes/conexao.php";
 
 <style type="text/css">
 
-     html,body {
-    overflow: hidden;
-  }
+     
   
 
   nav {
@@ -189,8 +187,10 @@ text-decoration:none;
 }
 
 #div5 {
+  
   width: 100% !important;
 }
+
 
 #div6 {
   width: 100% !important;
@@ -459,8 +459,9 @@ text-decoration:none;
 
   </div>
 </a>
-  </div>
 
+  </div>
+  
 
 </div>
 
