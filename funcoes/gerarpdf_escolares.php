@@ -1,22 +1,16 @@
 <?php
-	include "conexao.php";
-	session_start();
-	if (isset($_GET['modalidade_coletivaid'])) {
-		$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
-	}
-	$verifica = $_SESSION['login_escola'][0];
-  	$seleciona = "SELECT escola_id from escola where login = '$verifica'";
-  	$resus = mysqli_query($conexao, $seleciona);
-  	$verificaid = mysqli_fetch_row($resus);
-  	$str = implode($verificaid);
-	//mostrar id do evento
-	$seleciona2 = "SELECT modalidade_coletivaid from modalidade_coletiva where modalidade_coletivaid = '$modalidade_coletivaid'";
-  	$resus2 = mysqli_query($conexao, $seleciona2);
-  	$verificaid2 = mysqli_fetch_row($resus2);
-	$str2 = implode($verificaid2);
-	//acaba aqui  
+			include "conexao.php";
+			session_start();
+			if (isset($_GET['modalidade_coletivaid'])) {
+		  			$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
+		  	}
 
-			
+			$id = $_SESSION['login_escola'][0];
+  			$seleciona = "SELECT escola_id from escola where login = '$id'";
+  			$resus = mysqli_query($conexao, $seleciona);
+  			$verificaid = mysqli_fetch_row($resus);
+  			$str = implode($verificaid);
+			//mostrar id do eventos
 
 	// referencia o namespace
 	use Dompdf\Dompdf;
@@ -26,25 +20,51 @@
 	require_once  '../dompdf/autoload.inc.php'; 
 	
 
-	$sql = "SELECT * FROM aluno where escola_id_fk = '$str' and modalidade_coletivaid_fk = '$modalidade_coletivaid'";
+	$sql = "SELECT * FROM aluno where modalidade_coletivaid_fk = '$modalidade_coletivaid'";
 	$result = mysqli_query($conexao, $sql);
+
 	$sqlescola = "SELECT * from escola where escola_id = '$str'";
 	$resultescola = mysqli_query($conexao, $sqlescola);
 	$dadosescola = mysqli_fetch_array($resultescola);
 	$logoescola = $dadosescola['imagem'];
-	$html = '<div id="imglogo">
-				<img src="../imagens/jogosescolares.png"  style="width:100px; height:100px;">
-				<img src="../imagens/'.$algumacoisa.'" style="width:100px; height:100px;" id="imglogo2">
-				<img src="../imagens/'.$algumacoisa.'" style="width:100px; height:100px;" id="imglogo3">
+	if($dadosescola['imagem'] != null){
+		$html = '<div id="imglogo">
+				<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+				<img src="../imagens/'.$logoescola.'" style="width:80px; height:80px;" id="imglogo3">
+			</div> ';
+	}
+	else{
+			$html = '<div id="imglogo">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo2">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo3">
+			</div> ';
 				
-            </div> ';
-            
-	$html .= '<img src="../imagens/'.$algumacoisa.'" style="width:100px; height:100px;" id="imglogo3">';
-		$html .='<h2 align="center" > ESCOLA: '.$dadosescola['nomeequipe'].'</h2>';
-		$html .='<h3 align="center"> DIRETOR: '.$dadosescola['nomeresponsavel'].'</h3>';
-		$html .='<h3 align="center"> INEP: '.$dadosescola['nomeresponsavel'].'</h3>';		
+	}
 	
-	$html .= '<h2 align="center">Alunos<h2>';
+			$html .= '<table id="tb1" border = 1 width = 100%>';
+			$html .= '<thead>';
+				$html .= '<tr align="center">';
+					$html .= '<td>ESCOLA</td>';
+					$html .= '<td>INEP</td>';
+					$html .= '<td>RESPONSAVEL</td>';
+					$html .= '<td>DIRETOR</td>';			
+				$html .= '</tr>';
+			$html .= '</thead>';
+			
+			$html .='<tbody>';
+				$html .='<tr align="center">';
+				$html .='<td>'.$dadosescola['nome'].'</td>';
+				$html .='<td>'.$dadosescola['inep'].'</td>';
+				$html .='<td>'.$dadosescola['nome_responsavel_escola'].'</td>';
+				$html .='<td>'.$dadosescola['diretor_escola'].'</td></tr>';
+				$html .='</tbody>';
+		
+			
+			$html .='</table>';
+	
+	
+	$html .= '<h3 align="center">ALUNOS<h3>';
 	$html .= '
 	<style>
 
@@ -52,7 +72,10 @@
 		font-family: Arial,sans-serif;
 		text-transform: uppercase;
 	}
+			#tb1{
+				margin-top: 10%;
 
+			}
 			table {
 				border-collapse:collapse;
 				white-space: nowrap;		
@@ -68,35 +91,46 @@
 			}
 				#imglogo{
 					position: relative;
-						
+					
 				}
 				#imglogo2{
-					margin-left: 28%;
+					margin-left: 20%;
 				}
 				#imglogo3{
-					margin-left: 28%;
+					margin-left: 20%;
+				}
+				#ass{
+					position: relative;
+					margin-top: 10%;
+				}
+				#imglogoEscola{
+					
+					
 				}
 	</style>';
 	$html .= '<table border = 1 width = 100%>';
 	$html .= '<thead>';
 		$html .= '<tr align="center">';
-			$html .= '<td>Nome do Aluno</td>';
-			$html .= '<td>Data de Nascimento</td>';
-			$html .= '<td>Rg do Aluno</td>';
+			$html .= '<td>NOME</td>';
+			$html .= '<td>DATA DE NASCIMENTO</td>';
+			$html .= '<td>RG</td>';
+					
 		$html .= '</tr>';
 	$html .= '</thead>';
 	$html .='<tbody>';
 	while ($linha = mysqli_fetch_assoc($result)) {
-		$html .='<tr align="center"><td>'.$linha[''].'</td>';
-		$html .='<td>'.$linha['nome'].'</td>';
+		$html .='<tr align="center"><td>'.$linha['nome'].'</td>';
 		$html .='<td>'.$linha['data_nascimento_aluno'].'</td>';
-		$html .='<td>'.$linha['rg'].'</td></tr>';
+		$html .='<td>'.$linha['rg'].'</td>';
 		$html .='</tbody>';
 	}
 
-	$html .='</table>';
+	$html .= '</table>';
 	
+	$html .= '<p id="ass" align="center";>___________________________________________________________</p>
+	<p align="center";>ASSINATURA DO DIRETOR</p>';
 	
+
 
 	//instancia
 	$dompdf = new Dompdf;
