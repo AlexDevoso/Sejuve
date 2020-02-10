@@ -3,14 +3,21 @@
 			session_start();
 			if (isset($_GET['modalidade_coletivaid'])) {
 		  			$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
-		  	}
-
-			$id = $_SESSION['login_escola'][0];
-  			$seleciona = "SELECT escola_id from escola where login = '$id'";
+			  }
+			if(isset($_SESSION['login_escola'][0])){
+				$id = $_SESSION['login_escola'][0];
+  				$seleciona = "SELECT escola_id from escola where login = '$id'";
+			}else{
+				if(isset($_SESSION['login_escola'][1])){
+				$id = $_SESSION['login_escola'][1];
+  				$seleciona = "SELECT escola_id from escola where escola_id = '$id'";
+				}
+			}
+			
   			$resus = mysqli_query($conexao, $seleciona);
   			$verificaid = mysqli_fetch_row($resus);
   			$str = implode($verificaid);
-			//mostrar id do eventos
+			
 
 	// referencia o namespace
 	use Dompdf\Dompdf;
@@ -38,6 +45,7 @@
 			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
 			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo2">
 			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo3">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo4">
 			</div> ';
 				
 	}
@@ -98,6 +106,9 @@
 				}
 				#imglogo3{
 					margin-left: 20%;
+				}
+				#imglogo4{
+					margin-left: 38%;
 				}
 				#ass{
 					position: relative;
