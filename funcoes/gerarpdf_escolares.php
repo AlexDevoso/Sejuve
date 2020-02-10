@@ -55,7 +55,7 @@
 				$html .= '<tr align="center">';
 					$html .= '<td>ESCOLA</td>';
 					$html .= '<td>INEP</td>';
-					$html .= '<td>RESPONSAVEL</td>';
+					$html .= '<td>RESPONSÁVEL</td>';
 					$html .= '<td>DIRETOR</td>';			
 				$html .= '</tr>';
 			$html .= '</thead>';
@@ -70,7 +70,26 @@
 		
 			
 			$html .='</table>';
+			$html .= '<h3 align="center">Técnico<h3>';
 	
+			$html .= '<table border = 1 width = 100%>';
+			$html .= '<thead>';
+				$html .= '<tr align="center">';
+					$html .= '<td>NOME</td>';
+					$html .= '<td>CREF</td>';
+					$html .= '<td>RG</td>';
+							
+				$html .= '</tr>';
+			$html .= '</thead>';
+			$html .='<tbody>';
+			while ($linha = mysqli_fetch_assoc($result)) {
+				$html .='<tr align="center"><td>'.$linha['nome'].'</td>';
+				$html .='<td>'.$linha['data_nascimento_aluno'].'</td>';
+				$html .='<td>'.$linha['rg'].'</td>';
+				$html .='</tbody>';
+			}
+		
+			$html .= '</table>';
 	
 	$html .= '<h3 align="center">ALUNOS<h3>';
 	$html .= '
@@ -108,7 +127,7 @@
 					margin-left: 20%;
 				}
 				#imglogo4{
-					margin-left: 38%;
+					margin-left: 38.5%;
 				}
 				#ass{
 					position: relative;
@@ -137,6 +156,8 @@
 	}
 
 	$html .= '</table>';
+
+	
 	
 	$html .= '<p id="ass" align="center";>___________________________________________________________</p>
 	<p align="center";>ASSINATURA DO DIRETOR</p>';
