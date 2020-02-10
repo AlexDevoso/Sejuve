@@ -4,12 +4,14 @@
   //selecionando id da escola
   if(isset($_GET['escola_id'])){
     $escola_id = $_GET['escola_id'];
+    $_SESSION['login_escola'][1] = $_GET['escola_id'];
   }
+  
   $mostrar = "SELECT escola_id from escola where escola_id = '{$escola_id}'";
   $re = mysqli_query($conexao, $mostrar);
   $linhas = mysqli_fetch_row($re);
   $id = implode($linhas);
-
+  
   //selecionando id da modalidade 12 a 14 masculino
   $mostrarModalidadem12 = "SELECT modalidade_coletivaid from modalidade_coletiva where nome_mc = 'basquete' and categoria_mc = 'masculino' and naipe_mc = '12a14'";
   $reModalidadem12 = mysqli_query($conexao, $mostrarModalidadem12);

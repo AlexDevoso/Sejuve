@@ -3,6 +3,7 @@
   include "../funcoes/conexao.php";
   if(isset($_GET['escola_id'])){
     $escola_id = $_GET['escola_id'];
+    $_SESSION['login_escola'][1] = $_GET['escola_id'];
   }
   $mostrar = "SELECT escola_id from escola where escola_id = '{$escola_id}'";
   $re = mysqli_query($conexao, $mostrar);
