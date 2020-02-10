@@ -130,7 +130,7 @@ footer {
  #voltar_h:hover {
 background-color:  #4FCFF9;
 border-radius: 50px;
-width: 00px;
+width: 100px;
 text-align: center;
 margin: 5px;
 font-size: 20px;
@@ -146,6 +146,7 @@ float:right;
 margin: 5px;
 font-size: 20px;
 }
+
 
 #sejuve {
 
@@ -184,7 +185,7 @@ font-weight:700;
   
 <a id="sejuve" href="adm.php">Sejuve</a>
 
-<a id="voltar_h" href="interface/adm.php">Voltar</a>
+<a id="voltar_h" href="adm.php">Voltar</a>
 
 </nav>
 <br>
