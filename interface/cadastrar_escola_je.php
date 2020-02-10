@@ -330,10 +330,27 @@ form {
       <tr id="trmodalidae">
         <td>
         <label>MODALIDADE</label>
-        <select id="modalidade" onchange="selecionaModalidade()" name="modalidade" class="form-control" style="width:  340px !important;">
+        <select  id="modalidade" onchange="selecionaModalidade()" name="modalidade" class="form-control" style="width:  340px !important;">
             <option value="" disabled selected>Modalidade</option>
             <option value="coletiva">Coletiva</option>
-            <option value="individual">Individual</option>
+            <?php
+            
+            date_default_timezone_set('America/Fortaleza');
+            $dataatual = date('d/m/Y');
+            $data = '04/31/2020';
+              if(strtotime($data) != strtotime($dataatual)){
+            ?>
+            <option value="individual" disabled default>individual</option>
+            <?php 
+            }
+            else{
+            ?>
+            <option value="individual" >individual</option>
+              <?php
+                }  
+              ?>
+            
+            
           </select>
           </td>
       </tr >
