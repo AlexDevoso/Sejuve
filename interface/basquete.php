@@ -297,6 +297,7 @@
       $resultado = mysqli_query($conexao, $sqlEscola);  
       
       $dados = mysqli_fetch_array($resultado);
+      
       ?>
         
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
