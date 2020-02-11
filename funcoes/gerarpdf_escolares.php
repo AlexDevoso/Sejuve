@@ -1,22 +1,22 @@
 <?php
-			include "conexao.php";
-			session_start();
-			if (isset($_GET['modalidade_coletivaid'])) {
-		  			$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
-			  }
-			if(isset($_SESSION['login_escola'][0])){
-				$id = $_SESSION['login_escola'][0];
-  				$seleciona = "SELECT escola_id from escola where login = '$id'";
-			}else{
-				if(isset($_SESSION['login_escola'][1])){
-				$id = $_SESSION['login_escola'][1];
-  				$seleciona = "SELECT escola_id from escola where escola_id = '$id'";
-				}
-			}
+	include "conexao.php";
+	session_start();
+	if (isset($_GET['modalidade_coletivaid'])) {
+		$modalidade_coletivaid = $_GET['modalidade_coletivaid'];
+		}
+	if(isset($_SESSION['login_escola'][0])){
+		$id = $_SESSION['login_escola'][0];
+  		$seleciona = "SELECT escola_id from escola where login = '$id'";
+	}else{
+		if(isset($_SESSION['login_escola'][1])){
+		$id = $_SESSION['login_escola'][1];
+  		$seleciona = "SELECT escola_id from escola where escola_id = '$id'";
+		}
+	}
 			
-  			$resus = mysqli_query($conexao, $seleciona);
-  			$verificaid = mysqli_fetch_row($resus);
-  			$str = implode($verificaid);
+  	$resus = mysqli_query($conexao, $seleciona);
+  	$verificaid = mysqli_fetch_row($resus);
+  	$str = implode($verificaid);
 			
 
 	// referencia o namespace
@@ -25,9 +25,10 @@
 
 	// inclui o autoloader
 	require_once  '../dompdf/autoload.inc.php'; 
-	
-
-	$sql = "SELECT * FROM aluno where modalidade_coletivaid_fk = '$modalidade_coletivaid'";
+	$sqlt = "SELECT * FROM comissao_tecnica_escolares where modalidade_coletivaid_fk = '$modalidade_coletivaid' and escola_id_fk = '$str'";
+	$resultecnico = mysqli_query($conexao, $sqlt);
+	$dadost = mysqli_fetch_array($resultecnico);
+	$sql = "SELECT * FROM aluno where modalidade_coletivaid_fk = '$modalidade_coletivaid' and escola_id_fk = '$str'";
 	$result = mysqli_query($conexao, $sql);
 
 	$sqlescola = "SELECT * from escola where escola_id = '$str'";
@@ -70,13 +71,13 @@
 		
 			
 			$html .='</table>';
-			$html .= '<h3 align="center">Técnico<h3>';
+			$html .= '<h3 align="center">ALUNOS<h3>';
 	
 			$html .= '<table border = 1 width = 100%>';
 			$html .= '<thead>';
 				$html .= '<tr align="center">';
 					$html .= '<td>NOME</td>';
-					$html .= '<td>CREF</td>';
+					$html .= '<td>DATA DE NASCIMENTO</td>';
 					$html .= '<td>RG</td>';
 							
 				$html .= '</tr>';
@@ -91,7 +92,7 @@
 		
 			$html .= '</table>';
 	
-	$html .= '<h3 align="center">ALUNOS<h3>';
+	$html .= '<h3 align="center">TÉCNICO<h3>';
 	$html .= '
 	<style>
 
@@ -133,6 +134,16 @@
 					position: relative;
 					margin-top: 10%;
 				}
+				#ass1{
+					position: absolute;
+					margin-top: 3%;
+					margin-left: 30%;
+				}
+				#ass11{
+					position: absolute;
+					margin-top: 3%;
+					margin-left: 3	0%;
+				}
 				#imglogoEscola{
 					
 					
@@ -142,26 +153,28 @@
 	$html .= '<thead>';
 		$html .= '<tr align="center">';
 			$html .= '<td>NOME</td>';
-			$html .= '<td>DATA DE NASCIMENTO</td>';
+			$html .= '<td>CREF</td>';
 			$html .= '<td>RG</td>';
 					
 		$html .= '</tr>';
 	$html .= '</thead>';
 	$html .='<tbody>';
-	while ($linha = mysqli_fetch_assoc($result)) {
-		$html .='<tr align="center"><td>'.$linha['nome'].'</td>';
-		$html .='<td>'.$linha['data_nascimento_aluno'].'</td>';
-		$html .='<td>'.$linha['rg'].'</td>';
+	
+		$html .='<tr align="center"><td>'.$dadost['nome_tecnico'].'</td>';
+		$html .='<td>'.$dadost['cref_tecnico'].'</td>';
+		$html .='<td>'.$dadost['rg_tecnico'].'</td>';
 		$html .='</tbody>';
-	}
+	
 
 	$html .= '</table>';
 
 	
 	
-	$html .= '<p id="ass" align="center";>___________________________________________________________</p>
-	<p align="center";>ASSINATURA DO DIRETOR</p>';
-	
+	$html .= '<p id="ass" align="left";>___________________________________________________________</p>
+	<p align="left";>CARIMBO E ASSINATURA DO DIRETOR - '.$dadosescola['diretor_escola'].'</p>';
+
+	$html .= '<p id="ass1" align="right";>___________________________________________________________</p>
+	<p id="ass11";>ASSINATURA DO TÉCNICO - '.$dadost['nome_tecnico'].'</p>';
 
 
 	//instancia
@@ -174,7 +187,7 @@
 	$dompdf->render();
 	//enviar para o browser
 	$dompdf->stream(
-			'relatório_atleta.pdf', array('Attachment' => false)
+			'relatório_alunos.pdf', array('Attachment' => false)
 	);
 
 ?>
