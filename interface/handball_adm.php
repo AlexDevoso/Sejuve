@@ -206,7 +206,7 @@ width: 100% !important;
       <div class="sidebar-heading text-white">
         
 
-<div style="display: flex;align-items: center; justify-content: center;">
+<div style="display: fleOx;align-items: center; justify-content: center;">
         <img width="50" src="../imagens/sejuve_logo.png"><h2>Sejuve</h2>
 </div>
 
@@ -263,7 +263,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Handebol</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 45%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+<div id="bgzin_" style="width: 90%;height: 25%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
