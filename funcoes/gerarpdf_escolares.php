@@ -130,23 +130,23 @@
 				#imglogo4{
 					margin-left: 38.5%;
 				}
-				#ass{
-					position: relative;
+				#assdiv{
+					position: absolute;
 					margin-top: 10%;
-				}
-				#ass1{
-					position: absolute;
-					margin-top: 3%;
-					margin-left: 30%;
-				}
-				#ass11{
-					position: absolute;
-					margin-top: 3%;
-					margin-left: 3	0%;
-				}
-				#imglogoEscola{
 					
+				}
+				#assdiv{
 					
+					margin-top: 9%;
+					float: right;
+					font-size: 10px;
+				}
+
+				#assdiv1{
+					
+					margin-top: -0.3%;
+					float: left;
+					font-size: 10px;
 				}
 	</style>';
 	$html .= '<table border = 1 width = 100%>';
@@ -168,15 +168,17 @@
 
 	$html .= '</table>';
 
-	
-	
-	$html .= '<p id="ass" align="left";>___________________________________________________________</p>
-	<p align="left";>CARIMBO E ASSINATURA DO DIRETOR - '.$dadosescola['diretor_escola'].'</p>';
+	$html .= '<div id="assdiv0">';
+	$html .= '<div id="assdiv">';
+	$html .= '<p >___________________________________________________________</p>';
+	$html .= '<p>CARIMBO E ASSINATURA DO DIRETOR - '.$dadosescola['diretor_escola'].'</p>';
+	$html .= '</div>';
 
-	$html .= '<p id="ass1" align="right";>___________________________________________________________</p>
-	<p id="ass11";>ASSINATURA DO TÉCNICO - '.$dadost['nome_tecnico'].'</p>';
-
-
+	$html .= '<div id="assdiv1">';
+	$html .= '<p>___________________________________________________________</p>';
+	$html .= '<p>ASSINATURA DO TÉCNICO - '.$dadost['nome_tecnico'].'</p>';
+	$html .= '</div>';
+	$html .= '</div>';
 	//instancia
 	$dompdf = new Dompdf;
 	//converter o html
