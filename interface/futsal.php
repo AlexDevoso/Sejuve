@@ -178,9 +178,7 @@
   width: 100% !important;  
   }
 
-  #bgzin_ {
-    height: 10% !important;
-  }
+  
   }
 </style>
 

@@ -167,9 +167,7 @@ text-decoration:none;
 width: 100% !important;  
 }
 
-#bgzin_ {
-  height: 10% !important;
- }
+
   }
 
 
@@ -273,7 +271,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Handebol</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 25%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;background-color: #fff;" >
+<div id="bgzin_" style="width: 90%;height: 45%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 

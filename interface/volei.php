@@ -177,9 +177,7 @@ text-decoration:none;
   width: 100% !important;  
   }
 
-  #bgzin_ {
-    height: 10% !important;
-  }
+ 
   }
 
 </style>
@@ -552,7 +550,7 @@ text-decoration:none;
 
 
 
-<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" >
+<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;" >
 
 
   

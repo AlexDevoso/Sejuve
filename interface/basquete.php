@@ -179,9 +179,7 @@
   width: 100% !important;  
   }
 
-  #bgzin_ {
-    height: 10% !important;
-  }
+  
   }
 
 
@@ -265,7 +263,7 @@
   <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Basquete</h1></center>
   <br>
 
-  <div id="bgzin_" style="width: 90%;height: 35%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
+  <div id="bgzin_" style="width: 90%;height: 30%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
 
 
   <table class="table table-hover" style="background-color: #fff;"> 
@@ -539,7 +537,7 @@
 
 
 
-<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" >
+<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;" >
 
 
   
