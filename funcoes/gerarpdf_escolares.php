@@ -30,7 +30,7 @@
 	$dadost = mysqli_fetch_array($resultecnico);
 	$sql = "SELECT * FROM aluno where modalidade_coletivaid_fk = '$modalidade_coletivaid' and escola_id_fk = '$str'";
 	$result = mysqli_query($conexao, $sql);
-
+	
 	$sqlescola = "SELECT * from escola where escola_id = '$str'";
 	$resultescola = mysqli_query($conexao, $sqlescola);
 	$dadosescola = mysqli_fetch_array($resultescola);
@@ -83,9 +83,10 @@
 				$html .= '</tr>';
 			$html .= '</thead>';
 			$html .='<tbody>';
+			
 			while ($linha = mysqli_fetch_assoc($result)) {
 				$html .='<tr align="center"><td>'.$linha['nome'].'</td>';
-				$html .='<td>'.$linha['data_nascimento_aluno'].'</td>';
+				$html .='<td>'.date('d/m/Y', strtotime($linha['data_nascimento_aluno'])).'</td>';
 				$html .='<td>'.$linha['rg'].'</td>';
 				$html .='</tbody>';
 			}
