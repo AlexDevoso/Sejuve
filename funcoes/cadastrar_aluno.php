@@ -9,11 +9,13 @@ if(isset($_POST['cadastrar'])){
 	$nome = mysqli_escape_string($conexao, $_POST['nome_aluno']);
 	$data = mysqli_escape_string($conexao, $_POST['data']);
 	$str = mysqli_escape_string($conexao, $_POST['idescola']);
-	
 	$rg = mysqli_escape_string($conexao, $_POST['rg']);
 	$imagem = $_FILES['imagem_escola'];
 
-
+	list($ano, $mes, $dia) = explode('-', $data);
+	$anoatual = date('Y');
+	$anoaluno = $ano;
+	$idade = $anoatual - $ano;
 	
 	
 	$verifica_rg = "SELECT rg FROM aluno where rg = '{$rg}' and modalidade_coletivaid_fk != null and modalidade_individualid_fk != null";
@@ -32,7 +34,7 @@ if(isset($_POST['cadastrar'])){
 	$result3 = mysqli_query($conexao, $verifica_rg3);
 	$row3 = mysqli_num_rows($result3);
 
-
+	
 		
 
 
@@ -40,11 +42,20 @@ if(isset($_POST['cadastrar'])){
 
 
 	//codições para cadastramento
-	
-	if($row > 0 || $nome == "" || $rg == "" ){
+if($row > 0 || $nome == "" || $rg == ""){
 		$_SESSION['login'][2] = "ALUNO CADASTRADO EM DUAS MODALIDADES";
 		header('Location: ../interface/cadastrar_aluno_jogos.php');
-	}
+	}	
+	
+elseif($_SESSION['modalidade'][0] == "12a14" and $idade < 12 || $idade > 14){
+		$_SESSION['login'][2] = "Idade maior ou menor que o requesito";
+		header('Location: ../interface/cadastrar_aluno_jogos.php');
+}
+elseif($_SESSION['modalidade'][0] == '15a17' and $idade < 15 || $idade > 17){
+	$_SESSION['login'][2] = "Idade maior ou menor que o requesito";
+	header('Location: ../interface/cadastrar_aluno_jogos.php');
+}
+
 
 	elseif($row2 > 0){
 		//Insere os dados no banco
@@ -61,7 +72,7 @@ if(isset($_POST['cadastrar'])){
 		}
 	}
 	else{
-			$_SESSION['login'][2] = "ATLETA CADASTRADO";
+			$_SESSION['login'][2] = "ALUNO JÁ CADASTRADO";
 			header('Location: ../interface/cadastrar_aluno_jogos.php');
 		}
 	}
@@ -80,7 +91,7 @@ if(isset($_POST['cadastrar'])){
 		}
 	}
 	else{
-			$_SESSION['login'][2] = "ATLETA CADASTRADO";
+			$_SESSION['login'][2] = "ALUNO JÁ CADASTRADO";
 			header('Location: ../interface/cadastrar_aluno_jogos.php');
 		}
 	}

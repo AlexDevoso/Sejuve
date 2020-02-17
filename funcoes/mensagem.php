@@ -19,7 +19,7 @@ h=today.getHours();
 m=today.getMinutes();
 s=today.getSeconds();
 document.getElementById('txt').innerHTML=h+":"+m;
-setTimeout('time()',500);
+setTimeout('time()',50000);
 }
 </script>
 </head>
@@ -40,7 +40,7 @@ setTimeout('time()',500);
     </div>
   </div>
 </div>
-
+</body>
 
 
 
@@ -55,9 +55,6 @@ setTimeout('time()',500);
 
 <?php
   if(isset($_SESSION['login'][2])){
-    
-     
-
  ?>
 
 
@@ -66,7 +63,7 @@ setTimeout('time()',500);
   <div style="position: absolute; top: 50; right: 10;">
 
    
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="50000">
       <div class="toast-header">
         
         <strong class="mr-auto">Sejuve</strong>
@@ -78,7 +75,7 @@ h=today.getHours();
 m=today.getMinutes();
 s=today.getSeconds();
 document.getElementById('txt').innerHTML=h+":"+m;
-setTimeout('time()',500);
+setTimeout('time()',50000);
 }
 </script>
 </head>
@@ -99,7 +96,7 @@ setTimeout('time()',500);
     </div>
   </div>
 </div>
-
+</body>
 
 
 
