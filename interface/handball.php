@@ -271,7 +271,7 @@ width: 100% !important;
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Handebol</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 45%!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;background-color: #fff;" >
+<div id="bgzin_" style="width: 90%;height: 500px!important; overflow-y: auto;overflow-x: auto;margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;background-color: #fff;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
@@ -308,8 +308,17 @@ width: 100% !important;
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
-  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-  <td style="text-align: center;">
+  <?php if(isset($dados['data_nascimento_aluno'])){
+  ?>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
+  <?php
+  }
+  else{
+  ?>
+  <td><?php  ?></td>
+  <?php 
+  }
+  ?>  <td style="text-align: center;">
   <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
   <i style="color: #fff;" class="fas fa-print"></i>
   </a></td>
@@ -322,7 +331,7 @@ width: 100% !important;
     <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
     <td><?php echo $dados['nome']; ?></td>
     <td><?php echo $dados['rg']; ?></td>
-    <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+    <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
 
 
 
@@ -372,8 +381,17 @@ width: 100% !important;
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
-  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-  <td style="text-align: center;">
+  <?php if(isset($dados['data_nascimento_aluno'])){
+  ?>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
+  <?php
+  }
+  else{
+  ?>
+  <td><?php  ?></td>
+  <?php 
+  }
+  ?>  <td style="text-align: center;">
   <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
   <i style="color: #fff;" class="fas fa-print"></i>
   </a></td>
@@ -387,7 +405,7 @@ width: 100% !important;
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
-  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
   
 
 
@@ -438,8 +456,17 @@ width: 100% !important;
     <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
     <td><?php echo $dados['nome']; ?></td>
     <td><?php echo $dados['rg']; ?></td>
-    <td><?php echo $dados['data_nascimento_aluno']; ?></td>
-    <td style="text-align: center;">
+    <?php if(isset($dados['data_nascimento_aluno'])){
+  ?>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
+  <?php
+  }
+  else{
+  ?>
+  <td><?php  ?></td>
+  <?php 
+  }
+  ?>    <td style="text-align: center;">
   <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
   <i style="color: #fff;" class="fas fa-print"></i>
   </a></td>
@@ -452,7 +479,7 @@ width: 100% !important;
   <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
   <td><?php echo $dados['nome']; ?></td>
   <td><?php echo $dados['rg']; ?></td>
-  <td><?php echo $dados['data_nascimento_aluno']; ?></td>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
   
 
 
@@ -505,8 +532,17 @@ width: 100% !important;
 <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
-<td><?php echo $dados['data_nascimento_aluno']; ?></td>
-<td style="text-align: center;">
+<?php if(isset($dados['data_nascimento_aluno'])){
+  ?>
+  <td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
+  <?php
+  }
+  else{
+  ?>
+  <td><?php  ?></td>
+  <?php 
+  }
+  ?><td style="text-align: center;">
 <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
 <i style="color: #fff;" class="fas fa-print"></i>
 </a></td>
@@ -519,7 +555,7 @@ width: 100% !important;
 <td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem_aluno']."'/>"; ?></td>
 <td><?php echo $dados['nome']; ?></td>
 <td><?php echo $dados['rg']; ?></td>
-<td><?php echo $dados['data_nascimento_aluno']; ?></td>
+<td><?php echo date('d/m/Y', strtotime($dados['data_nascimento_aluno'])); ?></td>
 
 
 
@@ -550,7 +586,7 @@ width: 100% !important;
 </div>
 
 
-<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 20px;" >
+<div style="width: 80%; margin-left: auto;margin-right: auto;border-radius: 5px;margin-top: 1px;" >
 
 
   
