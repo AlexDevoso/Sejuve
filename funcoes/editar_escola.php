@@ -43,12 +43,12 @@ if(isset($_POST['editar'])){
 
 
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
-		header('Location: ../interface/times_cadastrados.php');
+		header('Location: ../interface/escolas_jogos_escolares.php');
 	
 	}
 		else{
 			$_SESSION['login'][2] = "ERRO AO ATUALIZAR";
-			header('Location: ../interface/atletas_database.php');
+			header('Location: ../interface/escolas_jogos_escolares.php');
 			
 		}
 	}
@@ -83,12 +83,12 @@ if(isset($_POST['editar'])){
 
 
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
-		header('Location: ../interface/times_cadastrados.php');
+		header('Location: ../interface/escolas_jogos_escolares.php');
 	
 	}
 		else{
 			$_SESSION['login'][2] = "ERRO AO ATUALIZAR";
-			header('Location: ../interface/atletas_database.php');
+			header('Location: ../interface/escolas_jogos_escolares.php');
 			
 		}
 		
@@ -101,12 +101,12 @@ else{
 		
 
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
-		header('Location: ../interface/times_cadastrados.php');
+		header('Location: ../interface/escolas_jogos_escolares.php');
 	
 	}
 		else{
 			$_SESSION['login'][2] = "ERRO AO ATUALIZAR";
-			header('Location: ../interface/atletas_database.php');
+			header('Location: ../interface/escolas_jogos_escolares.php');
 			
 		}
 }

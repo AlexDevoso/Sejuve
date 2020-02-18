@@ -14,7 +14,7 @@
 
 	if($nome == "" || $rga == ""){
 		$_SESSION['login'][2] = "CAMPOS VAZIOS";
-		header("Location: ../interface/atletas_database.php");
+		header("Location: ../interface/.php");
 
 	}
 	//
@@ -45,12 +45,12 @@ elseif(!empty($imagem_aluno["name"])){
 	if(mysqli_query($conexao, $sql)){
 
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
-		header('Location: ../interface/times_cadastrados.php');
+		header('Location: ../interface/.php');
 	
 	}
 		else{
 			$_SESSION['login'][2] = "ERRO AO ATUALIZAR";
-			header('Location: ../interface/atletas_database.php');
+			header('Location: ../interface/.php');
 			
 		}
 	}
@@ -75,7 +75,7 @@ elseif(!empty($imagem_aluno["name"])){
 		if($row == 0){
 		$sqlimg = "UPDATE aluno set nome = '{$nome}', rg = '{$rg}', modalidade_coletiva_fk = '{$modalidade_coletiva_fk}', modalidade_individual_fk = '{$modalidade_individual_fk}', imagem_aluno = '{$nome_imagem}' where alunoid = '{$alunoid}'";
 		if(mysqli_query($conexao, $sqlimg)){
-		header('Location: ../interface/atletas_database.php');
+		header('Location: ../interface/.php');
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
 
 		}
@@ -83,7 +83,7 @@ elseif(!empty($imagem_aluno["name"])){
 		else{
 			$sqlimg = "UPDATE aluno set nome = '{$nome}', modalidade_individual_fk = '{$modalidade_individual_fk}', imagem_aluno = '{$nome_imagem}' where alunoid = '{$alunoid}'";
 		if(mysqli_query($conexao, $sqlimg)){
-		header('Location: ../interface/atletas_database.php');
+		header('Location: ../interface/.php');
 		$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
 
 		}	
@@ -94,7 +94,7 @@ elseif(!empty($imagem_aluno["name"])){
 else{
 	$sql = "UPDATE aluno set nome = '{$nome}', rg = '{$rg}', modalidade_individual_fk = '{$modalidade_individual_fk}', modalidade_coletiva_fk = '{$modalidade_coletiva_fk}' where alunoid = '{$alunoid}'";
 	if(mysqli_query($conexao, $sql)){
-	header('Location: ../interface/atletas_database.php');
+	header('Location: ../interface/.php');
 			$_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
 		}	
 		else{
