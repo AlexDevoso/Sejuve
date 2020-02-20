@@ -542,7 +542,8 @@ text-decoration:none;
   <td><?php  ?></td>
   <?php 
   }
-  ?><td style="text-align: center;">
+  ?>
+  <td style="text-align: center;">
 <a class="btn btn-dark"  href="../funcoes/gerarpdf_escolares.php?modalidade_coletivaid=<?php echo $dados['modalidade_coletivaid']; ?>">
 <i style="color: #fff;" class="fas fa-print"></i>
 </a></td>

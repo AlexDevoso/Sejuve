@@ -127,6 +127,7 @@ form {
 }
 
 
+
 </style>
 
 
@@ -420,8 +421,7 @@ form {
       <tr id="trbutao">
         <td>
         <button class="shadow" type="submit" name="enviar" id="btn_cd_at">Cadastrar atletas</button>
-          </td>
-          
+        </td>
       </tr>
     </table>
     </form>

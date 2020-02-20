@@ -206,9 +206,9 @@ width: 100% !important;
       <div class="sidebar-heading text-white">
         
 
-<div style="display: fleOx;align-items: center; justify-content: center;">
-        <img width="50" src="../imagens/sejuve_logo.png"><h2>Sejuve</h2>
-</div>
+      <div style="display: flex;align-items: center;justify-content: center;">
+          <img width="50" src="../imagens/sejuve_logo.png"><h2>Sejuve</h2>
+  </div>
 
       </div>
       <div class="list-group list-group-flush  ">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../funcoes/conexao.php";
+include "../funcoes/mensagem.php";
 include "../funcoes/verifica_login_adm.php";
 ?>
 
@@ -268,7 +269,7 @@ text-decoration:none;
   ?>
   <tr>
     
-<td><img width="50" src="../imagens/sistema/pre_def.jpg"></td>
+<td><?php echo "<img style='margin-bottom:20px;' width='50' src='../imagens/".$dados['imagem']."'/>"; ?></td>
 <td><?php echo $dados['nome'];?></td>
 <td><?php echo $dados['inep'];?></td>
 <td><?php echo $dados['endereco_escola'];?></td>
