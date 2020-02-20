@@ -37,15 +37,15 @@
 	$logoescola = $dadosescola['imagem'];
 	if($dadosescola['imagem'] != null){
 		$html = '<div id="imglogo">
-		img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+		<img src="../imagens/relatorio/sejuve_logo2.png" style="width:130px; height:80px;">
 		<img src="../imagens/relatorio/JOGOS.png"  style="width:130px; height:80px;" id="imglogo2">
 		<img src="../imagens/relatorio/pre.png"  style="width:130px; height:80px;" id="imglogo3">
-				<img src="../imagens/'.$logoescola.'" style="width:80px; height:80px;" id="imglogo4">
+		<img src="../imagens/'.$logoescola.'" style="width:80px; height:80px;" id="imglogo4">
 			</div> ';
 	}
 	else{
 			$html = '<div id="imglogo">
-			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;">
+			<img src="../imagens/relatorio/sejuve_logo2.png" style="width:130px; height:80px;">
 			<img src="../imagens/relatorio/JOGOS.png"  style="width:130px; height:80px;" id="imglogo2">
 			<img src="../imagens/relatorio/pre.png"  style="width:130px; height:80px;" id="imglogo3">
 		
@@ -131,7 +131,8 @@
 					margin-left: 20%;
 				}
 				#imglogo4{
-					margin-left: 38.5%;
+					margin-top: 5%;
+					margin-left: 42%;
 				}
 				#assdiv{
 					position: absolute;
