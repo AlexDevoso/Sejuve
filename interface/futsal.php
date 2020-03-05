@@ -270,7 +270,7 @@
 <center><h1 style="color: #fff;text-shadow: 1px 1px 1px #000;" >Futsal</h1></center>
 
 
-<div id="bgzin_" style="width: 90%;height: 50%;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
+<div id="bgzin_" style="width: 90%;height: 500px;margin-right: auto; margin-left: auto;overflow-x: auto;overflow-y: auto;background-color: #fff;border-radius: 5px;" >
 
 
 <table class="table table-hover" style="background-color: #fff;"> 
