@@ -37,29 +37,30 @@
 	$logoescola = $dadosescola['imagem'];
 	if($dadosescola['imagem'] != null){
 		$html = '<div id="imglogo">
-		<img src="../imagens/relatorio/sejuve_logo2.png" style="width:130px; height:80px;">
-		<img src="../imagens/relatorio/JOGOS.png"  style="width:130px; height:80px;" id="imglogo2">
-		<img src="../imagens/relatorio/pre.png"  style="width:130px; height:80px;" id="imglogo3">
-		<img src="../imagens/'.$logoescola.'" style="width:80px; height:80px;" id="imglogo4">
+		<img src="../imagens/relatorio/educa.png" style="width:130px; height:80px;">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo2">
+			<img src="../imagens/relatorio/pre.png"  style="width:130px; height:80px;" id="imglogo3">
+			
+			<img src="../imagens/relatorio/JOGOS.png" style="width20; height:200px;" id="imglogo4">
+		    <img src="../imagens/'.$logoescola.'" style="width:200px; height:200px;" id="imglogo5">
 			</div> ';
 	}
 	else{
 			$html = '<div id="imglogo">
-			<img src="../imagens/relatorio/sejuve_logo2.png" style="width:130px; height:80px;">
-			<img src="../imagens/relatorio/JOGOS.png"  style="width:130px; height:80px;" id="imglogo2">
+			<img src="../imagens/relatorio/educa.png" style="width:130px; height:80px;">
+			<img src="../imagens/relatorio/sejuve_logo2.png"  style="width:130px; height:80px;" id="imglogo2">
 			<img src="../imagens/relatorio/pre.png"  style="width:130px; height:80px;" id="imglogo3">
-		
+			
+			<img src="../imagens/relatorio/JOGOS.png" style="width:150px; height:150px;" id="imglogo6">
 			</div> ';
 				
 	}
 	
 			$html .= '<table id="tb1" border = 1 width = 100%>';
 			$html .= '<thead>';
-				$html .= '<tr align="center">';
-					$html .= '<td>ESCOLA</td>';
-					$html .= '<td>INEP</td>';
-					$html .= '<td>RESPONSÁVEL</td>';
-					$html .= '<td>DIRETOR</td>';			
+				$html .= '<tr align="center" id="letraTI">';
+					$html .= '<td style="width: 553px;">ESCOLA</td>';
+					$html .= '<td style="width: 180px;">CÓD.INEP</td>';		
 				$html .= '</tr>';
 			$html .= '</thead>';
 			
@@ -67,27 +68,25 @@
 				$html .='<tr align="center">';
 				$html .='<td>'.$dadosescola['nome'].'</td>';
 				$html .='<td>'.$dadosescola['inep'].'</td>';
-				$html .='<td>'.$dadosescola['nome_responsavel_escola'].'</td>';
-				$html .='<td>'.$dadosescola['diretor_escola'].'</td></tr>';
 				$html .='</tbody>';
 		
 			
 			$html .='</table>';
-			$html .= '<h3 align="center">ALUNOS<h3>';
+			$html .= '<P id="letraTI" align="center">INFORMAÇÕES SOBRE O ALUNO</P>';
 	
-			$html .= '<table border = 1 width = 100%>';
+			$html .= '<table id="tb2" border = 1 width = 100%>';
 			$html .= '<thead>';
-				$html .= '<tr align="center">';
-					$html .= '<td>NOME</td>';
-					$html .= '<td>DATA DE NASCIMENTO</td>';
-					$html .= '<td>RG</td>';
+				$html .= '<tr align="center" id="letraTI" >';
+					$html .= '<td style="width: 400px;">NOME</td> ';
+					$html .= '<td style="width: 150px;">NASCIMENTO</td>';
+					$html .= '<td style="width: 180px;">RG</td>';
 							
 				$html .= '</tr>';
 			$html .= '</thead>';
 			$html .='<tbody>';
 			
 			while ($linha = mysqli_fetch_assoc($result)) {
-				$html .='<tr align="center"><td>'.$linha['nome'].'</td>';
+				$html .='<tr align="center"><td id="LetraNome">'.$linha['nome'].'</td>';
 				$html .='<td>'.date('d/m/Y', strtotime($linha['data_nascimento_aluno'])).'</td>';
 				$html .='<td>'.$linha['rg'].'</td>';
 				$html .='</tbody>';
@@ -95,29 +94,44 @@
 		
 			$html .= '</table>';
 	
-	$html .= '<h3 align="center">TÉCNICO<h3>';
+	
 	$html .= '
 	<style>
 
 	body {
 		font-family: Arial,sans-serif;
 		text-transform: uppercase;
+		font-weight: bold;
 	}
+	
 			#tb1{
-				margin-top: 10%;
+				margin-top: -1%;
+				font-family: Arial,sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+
+			}
+			#tb2{
+				margin-top: -1%;
+				font-family: Arial,sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
 
 			}
 			table {
 				border-collapse:collapse;
-				white-space: nowrap;		
+				white-space: nowrap;
+				font-family: Arial,sans-serif;
+
 			}
 
 			tbody{
-				font-family: Arial,sans-serif;
+				
+		        font-family: Arial,sans-serif;
        			margin: 0;
        			padding: 0;
        			border: none;
-       			font-size: 13px;
+       			font-size: 9px;
        			
 			}
 				#imglogo{
@@ -131,40 +145,85 @@
 					margin-left: 20%;
 				}
 				#imglogo4{
-					margin-top: 5%;
-					margin-left: 42%;
+					margin-top: 2%;
+					margin-left: 15%;
 				}
-				#assdiv{
+				#imglogo6{
+				    margin-left: 40%;
+				}
+				#imglogo5{
+					margin-top: 2%;
+					margin-left: 10%;
+				}
+			
+				#assdiv0{
 					position: absolute;
-					margin-top: 10%;
+					margin-top: 2%;
+					text-align: center;
 					
 				}
 				#assdiv{
 					
-					margin-top: 9%;
-					float: right;
-					font-size: 10px;
+		            margin-top: -1%;
+					
+					font-size: 9px;
 				}
 
 				#assdiv1{
+				
 					
-					margin-top: -0.3%;
-					float: left;
-					font-size: 10px;
+					
+					
+					font-size: 9px;
 				}
+				#letra{
+				
+		            font-family: Arial,sans-serif;
+					font-size: 9px !important;
+					font-weight: bold;
+					text-transform: none!important;
+
+				}
+				#letraTI{
+				
+            		font-family: Arial,sans-serif;
+				    font-size: 9px !important;
+				    font-weight: bold;
+				}
+				#LetraNome{
+				
+		    font-family: Arial,sans-serif;
+				    text-align: left !importante;
+				}
+				#final{
+				        position: absolute;
+				        top: 95%;
+				        text-align: center;
+				        
+				}
+				#form{
+				background-color:#A9A9A9;
+				}
+				#form2{
+				background-color:blue;
+				}
+			
 	</style>';
-	$html .= '<table border = 1 width = 100%>';
+	$html .= '<P id="letraTI" align="center">INFORMAÇÕES SOBRE A COMISSÃO TÉCNICA </P>';
+	$html .= '<table id="tb2" border = 1 width = 100%>';
+	
 	$html .= '<thead>';
-		$html .= '<tr align="center">';
-			$html .= '<td>NOME</td>';
-			$html .= '<td>CREF</td>';
-			$html .= '<td>RG</td>';
+	
+		$html .= '<tr align="center" id="letraTI">';
+			$html .= '<td  style="width: 400px;">NOME</td>';
+			$html .= '<td  style="width: 150px;">CREF</td>';
+			$html .= '<td  style="width: 180px;">RG</td>';
 					
 		$html .= '</tr>';
 	$html .= '</thead>';
 	$html .='<tbody>';
 	
-		$html .='<tr align="center"><td>'.$dadost['nome_tecnico'].'</td>';
+		$html .='<tr align="center"><td id="LetraNome">'.$dadost['nome_tecnico'].'</td>';
 		$html .='<td>'.$dadost['cref_tecnico'].'</td>';
 		$html .='<td>'.$dadost['rg_tecnico'].'</td>';
 		$html .='</tbody>';
@@ -173,16 +232,25 @@
 	$html .= '</table>';
 
 	$html .= '<div id="assdiv0">';
+	$html .= '<p id="letra" align="center">Afirmo que(os) Aluno(s) acima listados, está(ão) matriculado(s) regulamente nesta instituição de ensino</p>';
 	$html .= '<div id="assdiv">';
-	$html .= '<p >___________________________________________________________</p>';
-	$html .= '<p>CARIMBO E ASSINATURA DO DIRETOR - '.$dadosescola['diretor_escola'].'</p>';
+	$html .= '<p >____________________________________________________________________</p>';
+	$html .= '<p id="letra">CARIMBO E ASSINATURA DO DIRETOR: </p>';
+	$html .= '<p id="letraTI">'.$dadosescola['diretor_escola'].'</p>';
+	$html .= '<p>____________________________________________________________________</p>';
+	$html .= '<p id="letra" >ASSINATURA DO TÉCNICO: </p>';
+	$html .= '<p id="letraTI">'.$dadost['nome_tecnico'].'</p>';
 	$html .= '</div>';
 
-	$html .= '<div id="assdiv1">';
-	$html .= '<p>___________________________________________________________</p>';
-	$html .= '<p>ASSINATURA DO TÉCNICO - '.$dadost['nome_tecnico'].'</p>';
+	
 	$html .= '</div>';
-	$html .= '</div>';
+	$html .='<div id="final">';
+	$html .='<p id = "letraTI">Secretaria de Esporte e Juventude Municipal de Pentecoste';
+	$html .='<div id="form" >';
+
+	$html .='</div>';
+	$html .='</div>';
+
 	//instancia
 	$dompdf = new Dompdf;
 	//converter o html

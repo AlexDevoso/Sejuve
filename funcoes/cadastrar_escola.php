@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 include "conexao.php";
 if(isset($_POST['cadastrar'])){
@@ -82,7 +82,7 @@ if(!empty($imagem["name"])){
 else{
 	$sql = "INSERT INTO escola(nome, inep, login, senha, endereco_escola, nome_responsavel_escola, diretor_escola, email, telefone_escola) values ('$nome', '$inep', '$login', '$senha','$endereco_escola','$nome_responsavel_escola','$diretor_escola','$email','$telefone_escola')";
 	
-	if($resu = mysqli_query($conexao, $sql)){
+	if(mysqli_query($conexao, $sql)){
 		$_SESSION['login'][1] = "CADASTRADO COM SUCESSO";
 		header("Location: ../interface/escolas_jogos_escolares.php");
 	}
