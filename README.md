@@ -11,14 +11,14 @@ O projeto contempla área administrativa, cadastro de equipes, gerenciamento de 
 ### Teka de Login - Área Administratia
 Interface de autenticação para acesso restrito à área administrativa do sistema
 
-![Tela de Login]()
+![Tela de Login](screenshots/login1.jpg)
 
 ---
 
-### 🏟️ Painel Administrativo
-Tela principal após o login, permitindo o gerenciamento geral do sistema.
+### 🏟️ Lega de Login - Usuário
+Tela de login para o usuário entrar no sistema.
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Tela de Login](screenshots/login.jpg)
 
 ---
 
